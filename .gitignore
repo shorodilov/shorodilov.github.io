@@ -1,4 +1,4 @@
-### IDEs configs
+### IDEs full template
 /.vscode/
 /.idea/
 
@@ -168,3 +168,7 @@ sketch
 
 # and uncomment the following lines
 # .pnp.*
+
+### Temporary files template
+/temp/
+/tmp/
