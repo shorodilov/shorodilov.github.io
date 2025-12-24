@@ -1,0 +1,7 @@
+{
+  "name": "cv-website",
+  "repository": "https://github.com/shorodilov/shorodilov.github.io.git",
+  "author": "Serhii Horodilov <shorodilov@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
