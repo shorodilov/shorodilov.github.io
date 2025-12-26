@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error StorybookConfig type resolution can fail in this Storybook config context; runtime import is valid.
 import { type StorybookConfig } from "@storybook/react-webpack5"
 import * as os from "node:os"
 
