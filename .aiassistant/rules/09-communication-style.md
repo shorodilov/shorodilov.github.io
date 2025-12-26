@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Communication Style
 
 - Professional and technical

@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Operating Mode
 
 Default mode is ADVISORY.

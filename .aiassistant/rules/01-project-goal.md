@@ -1,6 +1,11 @@
+---
+apply: always
+---
+
 # Project Goal
 
-The goal of this project is to design and build a professional portfolio website that:
+The goal of this project is to design and build a professional portfolio
+website that:
 
 - Positions the owner as a software engineer and system architect
 - Demonstrates technical depth and systems thinking

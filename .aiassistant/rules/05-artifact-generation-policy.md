@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Artifact Generation Policy
 
 The assistant must NOT generate:
