@@ -466,6 +466,10 @@ ij_html_space_around_equality_in_attribute = false
 ij_html_space_inside_empty_tag = false
 ij_html_text_wrap = normal
 
+[README.md]
+max_line_length = 79
+ij_visual_guides = 79
+
 [{*.markdown,*.md}]
 max_line_length = 79
 ij_visual_guides = 79
