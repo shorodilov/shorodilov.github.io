@@ -157,7 +157,7 @@ If the Gatsby project needs to be initialized from this skeleton:
    
    # Create required Gatsby files:
    # - gatsby-config.ts (or .js)
-   # - gatsby-node.ts (or .js) 
+   # - gatsby-node.ts (or .js)
    # - gatsby-browser.ts (or .js)
    # - src/pages/index.tsx
    ```
@@ -195,7 +195,7 @@ These issues may occur once Gatsby is initialized:
    or `rm -rf .cache public`
 2. **GraphQL schema conflicts**: Restart dev server after adding new data
    sources
-3. **Module resolution**: Gatsby uses custom Webpack config; path aliases must
+3. **Module resolution**: Gatsby uses custom webpack config; path aliases must
    be configured in both `tsconfig.json` and `gatsby-config.ts`
 4. **Node.js version**: Gatsby requires Node 18+; verify version before
    reporting issues
