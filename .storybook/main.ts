@@ -7,11 +7,11 @@ const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
     addons: ["@storybook/addon-webpack5-compiler-swc", "@storybook/addon-a11y", "@storybook/addon-docs"],
     framework: "@storybook/react-webpack5",
-    webpackFinal: async (config: any) => {
+    webpackFinal: async (config: any, { cache }: any) => {
         if (os.platform() === "win32") {
-            // Use memory cache on Windows to prevent EBUSY errors while maintaining caching benefits
-            config.cache = config.cache || {}
-            config.cache.type = "memory"
+            // Disable Storybook cache on Windows to prevent EBUSY errors
+            // The cache parameter is Storybook's internal cache system, not webpack's cache
+            cache.set = () => Promise.resolve()
         }
         return config
     },
