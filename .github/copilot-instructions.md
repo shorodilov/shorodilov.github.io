@@ -43,7 +43,7 @@ This is a personal portfolio/CV website project that will be built with Gatsby, 
 
 1. **package.json**: Minimal manifest with name, repository, author, and license. NO scripts or dependencies defined yet.
 2. **README.md**: Contains planned tech stack and intended project structure. Read this to understand the project's goals.
-3. **.editorconfig**: Extensive configuration (508 lines) with settings for TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
+3. **.editorconfig**: Extensive configuration (509 lines) with settings for TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
 4. **.gitignore**: Comprehensive ignore rules for Node.js, Gatsby (.cache/, public/), React, Yarn, and IDE files.
 5. **LICENSE**: MIT License
 
