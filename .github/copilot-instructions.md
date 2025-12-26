@@ -41,7 +41,7 @@ This is a personal portfolio/CV website project that will be built with Gatsby, 
 
 ### Root Directory Files
 
-1. **package.json**: Minimal manifest with name, repository, author, and license. NO scripts or dependencies defined yet.
+1. **package.json**: Minimal manifest with basic metadata (e.g., name, repository, author, license, private) and no `scripts` or `dependencies` sections defined yet.
 2. **README.md**: Contains planned tech stack and intended project structure. Read this to understand the project's goals.
 3. **.editorconfig**: Extensive configuration (509 lines) with settings for TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
 4. **.gitignore**: Comprehensive ignore rules for Node.js, Gatsby (.cache/, public/), React, Yarn, and IDE files.
@@ -100,10 +100,21 @@ If the Gatsby project needs to be initialized from this skeleton:
 
 1. **Option A - Using Gatsby CLI**:
    ```bash
+   # Install Gatsby CLI globally
    yarn global add gatsby-cli
-   # Remove or backup current files as needed
-   gatsby new . --ts  # Initialize with TypeScript
-   # Restore LICENSE, README.md, .editorconfig if needed
+   
+   # IMPORTANT:
+   # - Do NOT run "gatsby new . --ts" in this repository root while it contains files.
+   # - Gatsby will refuse to initialize a new site in a non-empty directory.
+   #
+   # Recommended workflow:
+   # 1) Initialize Gatsby in a NEW empty subdirectory:
+   gatsby new site --ts   # creates ./site with a fresh Gatsby + TypeScript starter
+   #
+   # 2) If you want the project at the repository root:
+   #    - Move or temporarily back up existing root files (LICENSE, README.md, .editorconfig, etc.)
+   #    - Move the contents of ./site into the repository root
+   #    - Restore LICENSE, README.md, .editorconfig, and any other preserved files
    ```
 
 2. **Option B - Manual setup**:
@@ -192,7 +203,7 @@ When implementing features:
 
 **When adding dependencies**:
 - Prefer stable versions over `latest` tag
-- Update yarn.lock: `yarn install` after adding to package.json
+- After editing `package.json`, run `yarn install` to update the already-tracked `yarn.lock` file (it currently exists in git and changes to it are expected).
 - Document major dependency additions in README if they affect setup
 
 ## Key Facts
