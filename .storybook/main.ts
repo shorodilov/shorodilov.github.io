@@ -10,9 +10,8 @@ const config: StorybookConfig = {
     webpackFinal: async (config: any) => {
         if (os.platform() === "win32") {
             // Use memory cache on Windows to prevent EBUSY errors while maintaining caching benefits
-            if (config.cache) {
-                config.cache.type = "memory"
-            }
+            config.cache = config.cache || {}
+            config.cache.type = "memory"
         }
         return config
     },
