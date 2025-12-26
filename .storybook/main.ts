@@ -11,7 +11,9 @@ const config: StorybookConfig = {
         if (os.platform() === "win32") {
             // Disable Storybook cache on Windows to prevent EBUSY errors
             // The cache parameter is Storybook's internal cache system, not webpack's cache
-            cache.set = () => Promise.resolve()
+            if (cache && typeof cache.set === "function") {
+                cache.set = () => Promise.resolve()
+            }
         }
         return config
     },
