@@ -94,7 +94,7 @@ available:
 **Expected in package.json scripts**:
 
 - `yarn develop` or `yarn dev` - Start Gatsby development server (usually
-  on http://localhost:8000)
+  on `http://localhost:8000`)
 - `yarn build` - Build static site for production (outputs to `public/`)
 - `yarn serve` - Serve production build locally
 - `yarn clean` - Clean Gatsby cache and public directory
@@ -224,8 +224,8 @@ When implementing features:
 
 5. **Testing changes**:
     - Run dev server: `yarn develop`
-    - Visit http://localhost:8000 to preview
-    - GraphiQL available at http://localhost:8000/___graphql
+    - Visit `http://localhost:8000` to preview
+    - GraphiQL available at `http://localhost:8000/___graphql`
     - Check browser console for errors
     - Verify TypeScript compilation: `yarn type-check`
     - Run full build: `yarn build` (test production output)
@@ -247,9 +247,9 @@ When implementing features:
 **When adding dependencies**:
 
 - Prefer stable versions over `latest` tag
-- After editing `package.json`, run `yarn install` to update the
-  already-tracked `yarn.lock` file (it currently exists in git and changes to
-  it are expected).
+- After editing `package.json`, run `yarn install` to create or update the
+  `yarn.lock` file, and commit any resulting changes (including a newly
+  created `yarn.lock`).
 - Document major dependency additions in README if they affect setup
 
 ## Key Facts
