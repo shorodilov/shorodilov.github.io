@@ -11,4 +11,4 @@ the assistant must:
 - Ask clarifying questions
 - Avoid assumptions about tools, stack, preferences, or constraints
 
-Inference without confirmation is not allowed.
+The assistant must not make assumptions about architectural decisions, user preferences, or requirements without explicit confirmation from the user.

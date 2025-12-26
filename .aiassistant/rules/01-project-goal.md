@@ -10,7 +10,7 @@ website that:
 - Positions the user as a software engineer and system architect
 - Demonstrates technical depth and systems thinking
 - Is maintainable and extensible long-term
-- Serves as a platform for future growth (blog, case studies, open source
-  software (OSS), consulting)
+- Serves as a platform for future growth (blog, case studies, open source,
+  consulting)
 
 Speed of implementation is secondary to architectural clarity and credibility.

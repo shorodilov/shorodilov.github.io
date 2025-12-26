@@ -54,12 +54,12 @@ development can begin.
    sections defined yet.
 2. **README.md**: Contains a planned tech stack and intended project structure.
    Read this to understand the project's goals.
-3. **.editorconfig**: Extensive configuration (509 lines) with settings for
+3. **.editorconfig**: Extensive configuration file with settings for
    TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
 4. **.gitignore**: Comprehensive ignore rules for Node.js, Gatsby (.cache/,
    public/), React, Yarn, and IDE files.
-5. **LICENSE**: MIT License (applies to the repository code, not to these
-   instructions)
+5. **LICENSE**: MIT License (applies to the contents of this repository,
+   including this instructions file, unless otherwise noted)
 
 ### .editorconfig Key Settings
 
@@ -71,7 +71,7 @@ development can begin.
 - **Max line length**: 119 characters (79 for README.md)
 - **Insert final newline**: true
 - **TypeScript/JavaScript**: Use double quotes, semicolons required
-- **Field prefix convention**: Underscore prefix for fields (`_fieldName`)
+- **Field prefix convention**: In TypeScript/JavaScript classes, use an underscore prefix only for **private instance fields/properties** (for example, `private _title: string;`). Do **not** use the underscore for public properties or plain object literals.
 
 ## Build & Development Commands
 

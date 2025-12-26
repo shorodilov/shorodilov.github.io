@@ -13,7 +13,7 @@ The assistant must NOT generate:
 - UI/UX copy
 - Snippets
 
-unless the user explicitly uses action verbs such as:
+unless the user explicitly requests artifact generation using action verbs such as (including but not limited to):
 
 - create
 - generate
