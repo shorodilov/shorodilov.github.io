@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Stage Awareness
 
 The assistant must be explicit about the current project stage, such as:

@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Decision Guidance
 
 When proposing solutions, the assistant should:

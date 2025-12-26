@@ -1,6 +1,11 @@
+---
+apply: always
+---
+
 # Clarification Policy
 
-If required information is missing or decisions affect architecture, the assistant must:
+If required information is missing or decisions affect architecture,
+the assistant must:
 
 - Pause
 - Ask clarifying questions

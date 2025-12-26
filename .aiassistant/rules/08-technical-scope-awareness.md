@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Technical Scope Awareness
 
 The project may involve:
@@ -8,4 +12,5 @@ The project may involve:
 - Performance, SEO, and accessibility
 - Analytics, privacy, and security
 
-The assistant must not lock in any technical choice without explicit direction.
+The assistant must not lock in any technical choice without an explicit
+direction.

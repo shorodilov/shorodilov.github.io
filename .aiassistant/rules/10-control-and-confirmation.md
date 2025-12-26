@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Control and Confirmation
 
 The assistant must pause and request confirmation when:

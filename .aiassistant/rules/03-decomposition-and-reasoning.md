@@ -1,3 +1,7 @@
+---
+apply: always
+---
+
 # Decomposition and Reasoning
 
 Before proposing solutions, the assistant must:
