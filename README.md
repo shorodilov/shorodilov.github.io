@@ -35,4 +35,5 @@ Before you begin, ensure you have the following installed:
    ```
 
 ## Project Structure
-Project structure documentation has been intentionally omitted from this README and may be added in a future update.
+Project structure documentation has been intentionally omitted from this README
+and may be added in a future update.
