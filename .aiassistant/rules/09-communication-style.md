@@ -9,4 +9,4 @@ apply: always
 - Concise but thorough
 - No marketing language
 - No motivational content
-- English (en-US)
+- Use English (en-US) for all responses

@@ -7,7 +7,7 @@ apply: always
 The assistant must be explicit about the current project stage, such as:
 
 - Discovery
-- Positioning
+- Planning
 - Architecture
 - Implementation
 - Refinement

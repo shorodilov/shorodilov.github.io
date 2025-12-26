@@ -33,11 +33,11 @@ installation.
 
 ```
 .
-├── .editorconfig          # Comprehensive editor configuration
+├── .editorconfig         # Comprehensive editor configuration
 ├── .gitignore            # Node/Gatsby/React gitignore rules
 ├── LICENSE               # MIT License
 ├── README.md             # Project documentation
-└── package.json          # Minimal package manifest (no scripts or dependencies yet)
+└── package.json          # Minimal package manifest
 ```
 
 **Important**: There are NO source files, build scripts, or dependencies in the
@@ -108,8 +108,8 @@ changes, BEFORE running any other commands.
 
 **Gatsby-specific notes**:
 
-- First build may take 30-120 seconds as Gatsby compiles and optimizes
-- Development server includes hot reload - changes appear automatically
+- The first build may take 30–120 seconds as Gatsby compiles and optimizes
+- Development server includes hot reload – changes appear automatically
 - If build fails with cache issues, run `yarn clean` then retry
 - The `public/` directory is gitignored and rebuilt on each production build
 - The `.cache/` directory is gitignored and managed by Gatsby
@@ -118,13 +118,14 @@ changes, BEFORE running any other commands.
 
 If the Gatsby project needs to be initialized from this skeleton:
 
-1. **Option A - Using Gatsby CLI**:
+1. **Option A – Using Gatsby CLI**:
    ```bash
    # Install Gatsby CLI globally
    yarn global add gatsby-cli
    
    # IMPORTANT:
-   # - Do NOT run "gatsby new . --ts" in this repository root while it contains files.
+   # - Do NOT run "gatsby new . --ts" in this repository root
+   #   while it contains files.
    # - Gatsby will refuse to initialize a new site in a non-empty directory.
    #
    # Recommended workflow:
@@ -132,12 +133,12 @@ If the Gatsby project needs to be initialized from this skeleton:
    gatsby new site --ts   # creates ./site with a fresh Gatsby + TypeScript starter
    #
    # 2) If you want the project at the repository root:
-   #    - Move or temporarily back up existing root files (LICENSE, README.md, .editorconfig, etc.)
    #    - Move the contents of ./site into the repository root
-   #    - Restore LICENSE, README.md, .editorconfig, and any other preserved files
+   #    - Restore LICENSE, README.md, .editorconfig,
+   #      and any other preserved files
    ```
 
-2. **Option B - Manual setup**:
+2. **Option B – Manual setup**:
    ```bash
    # Add Gatsby dependencies to package.json
    yarn add gatsby react react-dom
@@ -162,7 +163,7 @@ If the Gatsby project needs to be initialized from this skeleton:
 
 **Current State**: NO GitHub Actions workflows or CI/CD pipelines exist yet.
 
-**Expected validation steps** (once project is initialized):
+**Expected validation steps** (once a project is initialized):
 
 1. TypeScript compilation check: `yarn type-check` (or `tsc --noEmit`)
 2. Linting: `yarn lint` (if ESLint configured)
@@ -174,7 +175,7 @@ If the Gatsby project needs to be initialized from this skeleton:
 
 - Trigger on: push, pull_request
 - Steps: Install dependencies → Type check → Lint → Build → Test
-- Consider: Deploy to GitHub Pages on push to main branch
+- Consider: Deploy to GitHub Pages on push to the main branch
 
 ## Common Gatsby Pitfalls & Workarounds
 
