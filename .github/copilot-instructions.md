@@ -9,7 +9,8 @@ stage** with only configuration files and documentation.
 **Repository Name**: `shorodilov.github.io`
 **Type**: GitHub Pages personal website
 **Current State**: Project skeleton (not yet initialized with Gatsby)
-**Size**: ~228KB, <10 files (excluding node_modules)
+**Size**: Small repository with configuration and documentation files (excluding
+node_modules)
 **Tech Stack** (planned):
 
 - Framework: Gatsby (static site generator)
@@ -57,7 +58,8 @@ development can begin.
    TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
 4. **.gitignore**: Comprehensive ignore rules for Node.js, Gatsby (.cache/,
    public/), React, Yarn, and IDE files.
-5. **LICENSE**: MIT License
+5. **LICENSE**: MIT License (applies to the repository code, not to these
+   instructions)
 
 ### .editorconfig Key Settings
 
@@ -103,8 +105,9 @@ available:
 - `yarn storybook` - Start Storybook dev server (if configured)
 - `yarn build-storybook` - Build Storybook for production
 
-**Important**: ALWAYS run `yarn install` after cloning or when package.json
-changes, BEFORE running any other commands.
+**Important**: Once this project has dependencies defined in `package.json`
+(after Gatsby initialization), run `yarn install` after cloning or when
+package.json changes, BEFORE running any other commands.
 
 **Gatsby-specific notes**:
 
@@ -132,10 +135,17 @@ If the Gatsby project needs to be initialized from this skeleton:
    # 1) Initialize Gatsby in a NEW empty subdirectory:
    gatsby new site --ts   # creates ./site with a fresh Gatsby + TypeScript starter
    #
-   # 2) If you want the project at the repository root:
-   #    - Move the contents of ./site into the repository root
-   #    - Restore LICENSE, README.md, .editorconfig,
-   #      and any other preserved files
+   # 2) BACK UP important files at the repository root BEFORE moving anything:
+   #    mkdir -p backup-root-config
+   #    cp LICENSE README.md .editorconfig .gitignore backup-root-config 2>/dev/null || true
+   #
+   # 3) If you want the project at the repository root:
+   #    - Move the contents of ./site into the repository root,
+   #      being careful NOT to overwrite your backed-up files
+   #    - Restore LICENSE, README.md, .editorconfig, .gitignore,
+   #      and any other preserved files from backup-root-config as needed
+   #
+   # If you are unsure or want a safer path, prefer Option B (manual setup) below.
    ```
 
 2. **Option B – Manual setup**:

@@ -4,7 +4,7 @@ apply: always
 
 # Operating Mode
 
-Default mode is ADVISORY.
+Default mode is **advisory**.
 
 The assistant should prioritize:
 
