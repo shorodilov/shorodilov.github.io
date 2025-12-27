@@ -6,19 +6,27 @@ This is a personal portfolio/CV website project that will be built with Gatsby,
 React, and TypeScript. The repository is currently in its **initial skeleton
 stage** with only configuration files and documentation.
 
-**Repository Name**: `shorodilov.github.io`
-**Type**: GitHub Pages personal website
-**Current State**: Project skeleton (not yet initialized with Gatsby)
-**Size**: Small repository with configuration and documentation files (excluding
-node_modules)
-**Tech Stack** (planned):
+**Repository Name**
+: `shorodilov.github.io`
 
-- Framework: Gatsby (static site generator)
-- UI Library: React
-- Language: TypeScript
-- Styling: Tailwind CSS
-- Component Documentation: Storybook (planned)
-- Content: MDX (planned)
+**Type**
+: GitHub Pages personal website
+
+**Current State**
+: Project skeleton (not yet initialized with Gatsby)
+
+**Size**
+: Small repository with configuration and documentation files
+(excluding node_modules)
+
+**Tech Stack** (planned)
+:
+  - Framework: Gatsby (static site generator)
+  - UI Library: React
+  - Language: TypeScript
+  - Styling: Tailwind CSS
+  - Component Documentation: Storybook (planned)
+  - Content: MDX (planned)
 
 ## Prerequisites & Environment
 
@@ -71,7 +79,10 @@ development can begin.
 - **Max line length**: 119 characters (79 for README.md)
 - **Insert final newline**: true
 - **TypeScript/JavaScript**: Use double quotes, semicolons required
-- **Field prefix convention**: In TypeScript/JavaScript classes, use an underscore prefix only for **private instance fields/properties** (for example, `private _title: string;`). Do **not** use the underscore for public properties or plain object literals.
+- **Field prefix convention**: In TypeScript/JavaScript classes, use an
+  underscore prefix only for **private instance fields/properties** (for
+  example, `private _title: string;`). Do **not** use the underscore for public
+  properties or plain object literals.
 
 ## Build & Development Commands
 
@@ -226,7 +237,7 @@ When implementing features:
     - Run dev server: `yarn develop`
     - Visit `http://localhost:8000` to preview
     - GraphiQL available at `http://localhost:8000/___graphql`
-    - Check browser console for errors
+    - Check the browser console for errors
     - Verify TypeScript compilation: `yarn type-check`
     - Run full build: `yarn build` (test production output)
 
@@ -244,7 +255,7 @@ When implementing features:
 - Storybook: `@storybook/react`, `@storybook/addon-*` (if implemented)
 - MDX: `gatsby-plugin-mdx`, `@mdx-js/react` (if implemented)
 
-**When adding dependencies**:
+### When adding dependencies
 
 - Prefer stable versions over `latest` tag
 - After editing `package.json`, run `yarn install` to create or update the
