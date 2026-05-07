@@ -17,7 +17,7 @@ featuring a modern design powered by Tailwind CSS.
 Before you begin, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [Yarn](https://yarnpkg.com/) (v1.22.x or higher)
+- [pnpm](https://pnpm.io/) (v11.0.4)
 
 ## Getting Started
 
@@ -31,7 +31,7 @@ Before you begin, ensure you have the following installed:
 2. **Install dependencies:**
 
    ```bash
-   yarn install
+   pnpm install
    ```
 
 ## Project Structure
