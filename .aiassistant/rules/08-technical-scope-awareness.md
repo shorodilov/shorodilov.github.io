@@ -26,8 +26,11 @@ For package workflows, use pnpm commands such as:
 - `pnpm run typecheck`
 - `pnpm storybook`
 
-Within these established choices, the project may still involve decisions about:
+The project may still involve decisions about:
 
+- Frontend frameworks or static site generators
+- SSR vs SSG decisions
+- Hosting and CI/CD
 - Performance, SEO, and accessibility
 - Analytics, privacy, and security
 
