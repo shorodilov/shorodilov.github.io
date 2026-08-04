@@ -1,0 +1,46 @@
+name: Deploy Gatsby site to GitHub Pages
+on:
+  push:
+    branches:
+      - main
+      - master
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pnpm and Node.js
+        uses: pnpm/setup@v1
+        with:
+          runtime: node@22
+          cache: true
+      - name: Install project dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build with Gatsby
+        env:
+          PREFIX_PATHS: "true"
+        run: pnpm run build
+      - name: Upload artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
