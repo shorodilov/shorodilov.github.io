@@ -2,9 +2,8 @@
 
 ## Repository Overview
 
-This is a personal portfolio/CV website project that will be built with Gatsby,
-React, and TypeScript. The repository is currently in its **initial skeleton
-stage** with only configuration files and documentation.
+This is a personal portfolio/CV website project built with Gatsby,
+React, and TypeScript.
 
 **Repository Name**
 : `shorodilov.github.io`
@@ -13,20 +12,20 @@ stage** with only configuration files and documentation.
 : GitHub Pages personal website
 
 **Current State**
-: Project skeleton (not yet initialized with Gatsby)
+: Gatsby project initialized with TypeScript, Tailwind CSS, MDX, and Storybook
 
 **Size**
 : Small repository with configuration and documentation files
 (excluding node_modules)
 
-**Tech Stack** (planned)
+**Tech Stack**
 :
   - Framework: Gatsby (static site generator)
   - UI Library: React
   - Language: TypeScript
   - Styling: Tailwind CSS
-  - Component Documentation: Storybook (planned)
-  - Content: MDX (planned)
+  - Component Documentation: Storybook
+  - Content: MDX
 
 ## Prerequisites & Environment
 
@@ -42,24 +41,38 @@ installation.
 
 ```
 .
+├── .ai/rules/            # AI assistant rules
+├── .github/              # GitHub configuration and Copilot instructions
+├── src/
+│   ├── images/           # Static images
+│   ├── pages/            # Page components (routes)
+│   └── styles/           # Global styles and Tailwind configuration
 ├── .editorconfig         # Comprehensive editor configuration
 ├── .gitignore            # Node/Gatsby/React gitignore rules
+├── AGENTS.md             # AI assistant entry point
+├── gatsby-browser.js     # Gatsby browser APIs
+├── gatsby-config.ts      # Gatsby configuration
 ├── LICENSE               # MIT License
+├── package.json          # Project manifest with scripts and dependencies
+├── postcss.config.js     # PostCSS configuration
+├── prettier.config.ts    # Prettier configuration (source of truth for formatting)
 ├── README.md             # Project documentation
-└── package.json          # Minimal package manifest
+├── tailwind.config.js    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── yarn.lock             # Yarn lockfile
 ```
 
-**Important**: There are NO source files, build scripts, or dependencies in the
-current state. The project needs to be initialized with Gatsby before
-development can begin.
+**Important**: There are source files, build scripts, and dependencies already
+in place. Run `yarn install` after cloning or when `package.json` changes,
+BEFORE running any other commands.
 
 ## Repository Layout (Current)
 
 ### Root Directory Files
 
-1. **package.json**: Minimal manifest with basic metadata (e.g., name,
-   repository, author, license, private) and no `scripts` or `dependencies`
-   sections defined yet.
+1. **package.json**: Project manifest with `scripts` (develop, build, serve,
+   clean, typecheck, storybook, build-storybook) and full `dependencies` /
+   `devDependencies` sections.
 2. **README.md**: Contains a planned tech stack and intended project structure.
    Read this to understand the project's goals.
 3. **.editorconfig**: Extensive configuration file with settings for
@@ -78,7 +91,10 @@ development can begin.
 - **Charset**: UTF-8
 - **Max line length**: 119 characters (79 for README.md)
 - **Insert final newline**: true
-- **TypeScript/JavaScript**: Use double quotes, semicolons required
+- **TypeScript/JavaScript**: Use double quotes; note that `prettier.config.ts`
+  sets `semi: false`, so Prettier removes semicolons on format even if an IDE
+  inserts them — Prettier is the source of truth for TypeScript/JavaScript
+  formatting, overriding `.editorconfig` where they conflict
 - **Field prefix convention**: In TypeScript/JavaScript classes, use an
   underscore prefix only for **private instance fields/properties** (for
   example, `private _title: string;`). Do **not** use the underscore for public
@@ -86,39 +102,23 @@ development can begin.
 
 ## Build & Development Commands
 
-### Current State (Before Gatsby Initialization)
+**Prerequisites**: Run `yarn install` after cloning or when `package.json`
+changes, BEFORE running any other commands.
 
-**Working commands**:
+**Available scripts** (`package.json`):
 
-- `yarn install` - Installs dependencies (currently none, completes in <1s)
-- `node --version` - Verify Node.js installation
-- `yarn --version` - Verify Yarn installation
-
-**Not yet available**: No build, test, or development commands exist until
-Gatsby is initialized.
-
-### After Gatsby Initialization (Expected)
-
-Once the Gatsby project is initialized, these commands will typically be
-available:
-
-**Expected in package.json scripts**:
-
-- `yarn develop` or `yarn dev` - Start Gatsby development server (usually
-  on `http://localhost:8000`)
+- `yarn develop` - Start Gatsby development server (usually on `http://localhost:8000`)
 - `yarn build` - Build static site for production (outputs to `public/`)
 - `yarn serve` - Serve production build locally
 - `yarn clean` - Clean Gatsby cache and public directory
-- `yarn type-check` - Run TypeScript compiler checks
-- `yarn lint` - Run ESLint (if configured)
-- `yarn format` - Run Prettier (if configured)
-- `yarn test` - Run tests (if Jest/testing-library configured)
-- `yarn storybook` - Start Storybook dev server (if configured)
+- `yarn typecheck` - Run TypeScript compiler checks (`tsc --noEmit`)
+- `yarn storybook` - Start Storybook dev server (port 6006)
 - `yarn build-storybook` - Build Storybook for production
 
-**Important**: Once this project has dependencies defined in `package.json`
-(after Gatsby initialization), run `yarn install` after cloning or when
-package.json changes, BEFORE running any other commands.
+**Format with Prettier**:
+
+- Run `npx prettier --write .` to format all files
+- `prettier.config.ts` is the authoritative Prettier configuration
 
 **Gatsby-specific notes**:
 
@@ -128,69 +128,15 @@ package.json changes, BEFORE running any other commands.
 - The `public/` directory is gitignored and rebuilt on each production build
 - The `.cache/` directory is gitignored and managed by Gatsby
 
-## Initialization Instructions
-
-If the Gatsby project needs to be initialized from this skeleton:
-
-1. **Option A – Using Gatsby CLI**:
-   ```bash
-   # Install Gatsby CLI globally
-   yarn global add gatsby-cli
-   
-   # IMPORTANT:
-   # - Do NOT run "gatsby new . --ts" in this repository root
-   #   while it contains files.
-   # - Gatsby will refuse to initialize a new site in a non-empty directory.
-   #
-   # Recommended workflow:
-   # 1) Initialize Gatsby in a NEW empty subdirectory:
-   gatsby new site --ts   # creates ./site with a fresh Gatsby + TypeScript starter
-   #
-   # 2) BACK UP important files at the repository root BEFORE moving anything:
-   #    mkdir -p backup-root-config
-   #    cp LICENSE README.md .editorconfig .gitignore backup-root-config 2>/dev/null || true
-   #
-   # 3) If you want the project at the repository root:
-   #    - Move the contents of ./site into the repository root,
-   #      being careful NOT to overwrite your backed-up files
-   #    - Restore LICENSE, README.md, .editorconfig, .gitignore,
-   #      and any other preserved files from backup-root-config as needed
-   #
-   # If you are unsure or want a safer path, prefer Option B (manual setup) below.
-   ```
-
-2. **Option B – Manual setup**:
-   ```bash
-   # Add Gatsby dependencies to package.json
-   yarn add gatsby react react-dom
-   yarn add -D typescript @types/react @types/react-dom @types/node
-   yarn add gatsby-plugin-typescript
-   
-   # Create required Gatsby files:
-   # - gatsby-config.ts (or .js)
-   # - gatsby-node.ts (or .js)
-   # - gatsby-browser.ts (or .js)
-   # - src/pages/index.tsx
-   ```
-
-3. **Add Tailwind CSS** (per README):
-   ```bash
-   yarn add tailwindcss postcss autoprefixer gatsby-plugin-postcss
-   npx tailwindcss init -p
-   # Configure gatsby-config.ts and tailwind.config.js
-   ```
-
 ## Validation & CI/CD
 
 **Current State**: NO GitHub Actions workflows or CI/CD pipelines exist yet.
 
-**Expected validation steps** (once a project is initialized):
+**Validation steps**:
 
-1. TypeScript compilation check: `yarn type-check` (or `tsc --noEmit`)
-2. Linting: `yarn lint` (if ESLint configured)
-3. Build verification: `yarn build` (must complete without errors)
-4. Tests: `yarn test` (if configured)
-5. Format check: `yarn format --check` (if Prettier configured)
+1. TypeScript compilation check: `yarn typecheck` (or `tsc --noEmit`)
+2. Build verification: `yarn build` (must complete without errors)
+3. Format check: `npx prettier --check .`
 
 **Recommended GitHub Actions workflow** (to be added):
 
@@ -199,8 +145,6 @@ If the Gatsby project needs to be initialized from this skeleton:
 - Consider: Deploy to GitHub Pages on push to the main branch
 
 ## Common Gatsby Pitfalls & Workarounds
-
-These issues may occur once Gatsby is initialized:
 
 1. **Cache corruption**: If builds fail with cryptic errors, run `yarn clean`
    or `rm -rf .cache public`
@@ -219,8 +163,10 @@ These issues may occur once Gatsby is initialized:
 
 When implementing features:
 
-1. **Follow .editorconfig rules**: Use 4-space indentation, double quotes, and
-   semicolons
+1. **Follow formatting rules**: Use 4-space indentation and double quotes per
+   `.editorconfig`; use no semicolons per `prettier.config.ts` (`semi: false`).
+   Run Prettier before committing — it is the source of truth for
+   TypeScript/JavaScript formatting.
 2. **TypeScript**: Use explicit types where helpful; avoid `any` unless
    necessary
 3. **React**: Use functional components with hooks (modern React style)
@@ -238,22 +184,23 @@ When implementing features:
     - Visit `http://localhost:8000` to preview
     - GraphiQL available at `http://localhost:8000/___graphql`
     - Check the browser console for errors
-    - Verify TypeScript compilation: `yarn type-check`
+    - Verify TypeScript compilation: `yarn typecheck`
     - Run full build: `yarn build` (test production output)
 
 ## Dependencies
 
-**Current**: None (package.json has no dependencies or devDependencies)
-
-**Expected after initialization**:
+**Current dependencies** (see `package.json` for exact versions):
 
 - Core: `gatsby`, `react`, `react-dom`
 - TypeScript: `typescript`, type definitions (`@types/*`)
-- Tailwind: `tailwindcss`, `postcss`, `autoprefixer`
-- Gatsby plugins: `gatsby-plugin-typescript`, `gatsby-plugin-postcss`, others
-  as needed
-- Storybook: `@storybook/react`, `@storybook/addon-*` (if implemented)
-- MDX: `gatsby-plugin-mdx`, `@mdx-js/react` (if implemented)
+- Styling: `tailwindcss`, `postcss`, `autoprefixer`, `gatsby-plugin-postcss`
+- Gatsby plugins: `gatsby-plugin-image`, `gatsby-plugin-manifest`,
+  `gatsby-plugin-mdx`, `gatsby-plugin-sharp`, `gatsby-plugin-sitemap`,
+  `gatsby-source-filesystem`, `gatsby-transformer-sharp`
+- MDX: `gatsby-plugin-mdx`, `@mdx-js/react`
+- Formatting: `prettier`, `prettier-plugin-tailwindcss`
+- Storybook: `storybook`, `@storybook/react-webpack5`, related addons
+- Utilities: `clsx`
 
 ### When adding dependencies
 
@@ -272,8 +219,9 @@ When implementing features:
 3. **TypeScript-first**: Prefer .ts/.tsx files over .js/.jsx.
 4. **Tailwind for styling**: Use Tailwind utility classes instead of custom CSS
    where possible.
-5. **Code style**: Enforced by .editorconfig; many IDEs will auto-format on
-   save.
+5. **Code style**: `prettier.config.ts` is the source of truth for
+   TypeScript/JavaScript formatting; `.editorconfig` governs indentation,
+   line endings, and other editor settings.
 
 ## Trust These Instructions
 
@@ -282,8 +230,7 @@ validation of available commands. Only perform additional searches if:
 
 - Information here is incomplete for your specific task
 - You encounter errors not documented in the "Common Pitfalls" section
-- The project state has changed significantly (e.g., Gatsby has been
-  initialized)
+- The project state has changed significantly
 
 When in doubt, check the README.md for the project owner's intent, and verify
 the current project state with `ls -la` and `cat package.json` before assuming

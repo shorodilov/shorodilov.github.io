@@ -53,10 +53,12 @@ behavior and update this file only after explicit user direction.
 - Keep edits scoped to the requested task.
 - Use Tailwind for styling the new UI unless the surrounding code clearly uses
   a different local pattern.
-- Preserve Prettier settings:
-    - double quotes
-    - no semicolons
-    - trailing commas
+- Preserve Prettier settings (`prettier.config.ts` is the source of truth;
+  it overrides any IDE or `.editorconfig` defaults for TypeScript/JavaScript):
+    - double quotes (`singleQuote: false`)
+    - no semicolons (`semi: false`) — Prettier will remove them on format even
+      if an IDE inserts them
+    - trailing commas (`trailingComma: "all"`)
     - `arrowParens: "always"`
 - Avoid unrelated formatting churn in files outside the requested change.
 
