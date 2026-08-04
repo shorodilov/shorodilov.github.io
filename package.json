@@ -50,7 +50,7 @@
     "@storybook/addon-webpack5-compiler-swc": "^4.0.3",
     "@storybook/react-webpack5": "^10.5.5",
     "@storybook/test": "^8.6.15",
-    "@types/node": "^20.19.43",
+    "@types/node": "^22.20.1",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "prettier": "^3.9.6",
