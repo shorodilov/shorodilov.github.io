@@ -33,7 +33,7 @@ GitHub Pages deployment workflow.
 
 **Required versions**:
 
-- Node.js v20.19.0 or v22.13.0+
+- Node.js v22.13.0+
 - pnpm v11.19.0
 
 **Verification**: Run `node --version && pnpm --version` to confirm
@@ -149,8 +149,8 @@ These issues may occur once Gatsby is initialized:
    sources
 3. **Module resolution**: Gatsby uses custom webpack config; path aliases must
    be configured in both `tsconfig.json` and `gatsby-config.ts`
-4. **Node.js version**: This project requires Node v20.19.0 or v22.13.0+;
-   verify version before reporting issues
+4. **Node.js version**: This project requires Node v22.13.0+; verify version
+   before reporting issues
 5. **Sharp/image processing**: Native dependencies may need rebuild:
    `pnpm install --force`
 6. **Environment variables**: Prefix with `GATSBY_` to make available in
