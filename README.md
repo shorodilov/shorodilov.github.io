@@ -16,8 +16,8 @@ featuring a modern design powered by Tailwind CSS.
 
 Before you begin, ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [pnpm](https://pnpm.io/) (v11.0.4)
+- [Node.js](https://nodejs.org/) (v20.19.0 or v22.13.0+)
+- [pnpm](https://pnpm.io/) (v11.19.0)
 
 ## Getting Started
 

@@ -12,7 +12,7 @@ The project currently uses:
 - Tailwind CSS 4 with PostCSS
 - MDX
 - Storybook
-- pnpm 11.0.4 as the package manager
+- pnpm as pinned by `package.json#packageManager`
 - GitHub Pages deployment through the Gatsby workflow
 
 The assistant must treat `pnpm-lock.yaml`, `pnpm-workspace.yaml`, and the

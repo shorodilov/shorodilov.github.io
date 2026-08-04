@@ -2,9 +2,8 @@
 
 ## Repository Overview
 
-This is a personal portfolio/CV website project that will be built with Gatsby,
-React, and TypeScript. The repository is currently in its **initial skeleton
-stage** with only configuration files and documentation.
+This is a personal portfolio/CV website project built with Gatsby, React, and
+TypeScript.
 
 **Repository Name**
 : `shorodilov.github.io`
@@ -13,59 +12,63 @@ stage** with only configuration files and documentation.
 : GitHub Pages personal website
 
 **Current State**
-: Project skeleton (not yet initialized with Gatsby)
+: Gatsby application with TypeScript, MDX, Tailwind CSS, Storybook, and a
+GitHub Pages deployment workflow.
 
 **Size**
 : Small repository with configuration and documentation files
 (excluding node_modules)
 
-**Tech Stack** (planned)
+**Tech Stack**
 :
   - Framework: Gatsby (static site generator)
   - UI Library: React
   - Language: TypeScript
   - Styling: Tailwind CSS
-  - Component Documentation: Storybook (planned)
-  - Content: MDX (planned)
+  - Component Documentation: Storybook
+  - Content: MDX
+  - Package manager: pnpm 11.19.0
 
 ## Prerequisites & Environment
 
 **Required versions**:
 
-- Node.js v18 or higher (verified: v20.19.6 works)
-- Yarn v1.22.x or higher (verified: v1.22.22 works)
+- Node.js v20.19.0 or v22.13.0+
+- pnpm v11.19.0
 
-**Verification**: Run `node --version && yarn --version` to confirm
+**Verification**: Run `node --version && pnpm --version` to confirm
 installation.
 
 ## Current Project Structure
 
 ```
 .
+├── .github/              # GitHub Actions and assistant instructions
+├── .aiassistant/         # Assistant rules
+├── src/                  # Gatsby source files
 ├── .editorconfig         # Comprehensive editor configuration
-├── .gitignore            # Node/Gatsby/React gitignore rules
+├── .gitignore            # Node/Gatsby/React ignore rules
 ├── LICENSE               # MIT License
 ├── README.md             # Project documentation
-└── package.json          # Minimal package manifest
+├── package.json          # Package manifest with scripts and dependencies
+├── pnpm-lock.yaml        # pnpm lockfile
+└── pnpm-workspace.yaml   # pnpm workspace configuration
 ```
 
-**Important**: There are NO source files, build scripts, or dependencies in the
-current state. The project needs to be initialized with Gatsby before
-development can begin.
+**Important**: Treat `package.json#packageManager`, `pnpm-lock.yaml`, and
+`pnpm-workspace.yaml` as authoritative package-manager configuration.
 
 ## Repository Layout (Current)
 
 ### Root Directory Files
 
-1. **package.json**: Minimal manifest with basic metadata (e.g., name,
-   repository, author, license, private) and no `scripts` or `dependencies`
-   sections defined yet.
-2. **README.md**: Contains a planned tech stack and intended project structure.
-   Read this to understand the project's goals.
+1. **package.json**: Package manifest with metadata, scripts, dependencies,
+   pnpm package-manager pin, and Node engine constraints.
+2. **README.md**: Contains setup instructions and the current tech stack.
 3. **.editorconfig**: Extensive configuration file with settings for
    TypeScript, JavaScript, JSON, YAML, SCSS/SASS, HTML, and Markdown.
 4. **.gitignore**: Comprehensive ignore rules for Node.js, Gatsby (.cache/,
-   public/), React, Yarn, and IDE files.
+   public/), React, package-manager artifacts, and IDE files.
 5. **LICENSE**: MIT License (applies to the contents of this repository,
    including this instructions file, unless otherwise noted)
 
@@ -86,132 +89,70 @@ development can begin.
 
 ## Build & Development Commands
 
-### Current State (Before Gatsby Initialization)
-
 **Working commands**:
 
-- `yarn install` - Installs dependencies (currently none, completes in <1s)
+- `pnpm install` - Install dependencies
 - `node --version` - Verify Node.js installation
-- `yarn --version` - Verify Yarn installation
-
-**Not yet available**: No build, test, or development commands exist until
-Gatsby is initialized.
-
-### After Gatsby Initialization (Expected)
-
-Once the Gatsby project is initialized, these commands will typically be
-available:
-
-**Expected in package.json scripts**:
-
-- `yarn develop` or `yarn dev` - Start Gatsby development server (usually
+- `pnpm --version` - Verify pnpm installation
+- `pnpm develop` - Start Gatsby development server (usually
   on `http://localhost:8000`)
-- `yarn build` - Build static site for production (outputs to `public/`)
-- `yarn serve` - Serve production build locally
-- `yarn clean` - Clean Gatsby cache and public directory
-- `yarn type-check` - Run TypeScript compiler checks
-- `yarn lint` - Run ESLint (if configured)
-- `yarn format` - Run Prettier (if configured)
-- `yarn test` - Run tests (if Jest/testing-library configured)
-- `yarn storybook` - Start Storybook dev server (if configured)
-- `yarn build-storybook` - Build Storybook for production
+- `pnpm build` - Build static site for production (outputs to `public/`)
+- `pnpm serve` - Serve production build locally
+- `pnpm clean` - Clean Gatsby cache and public directory
+- `pnpm run typecheck` - Run TypeScript compiler checks
+- `pnpm storybook` - Start Storybook dev server
+- `pnpm build-storybook` - Build Storybook for production
 
-**Important**: Once this project has dependencies defined in `package.json`
-(after Gatsby initialization), run `yarn install` after cloning or when
-package.json changes, BEFORE running any other commands.
+**Important**: Run `pnpm install` after cloning or when `package.json` changes,
+before running any other commands.
 
 **Gatsby-specific notes**:
 
 - The first build may take 30–120 seconds as Gatsby compiles and optimizes
 - Development server includes hot reload – changes appear automatically
-- If build fails with cache issues, run `yarn clean` then retry
+- If build fails with cache issues, run `pnpm clean` then retry
 - The `public/` directory is gitignored and rebuilt on each production build
 - The `.cache/` directory is gitignored and managed by Gatsby
 
-## Initialization Instructions
+## Project Setup Notes
 
-If the Gatsby project needs to be initialized from this skeleton:
+The Gatsby project is already initialized at the repository root. Do not rerun
+`gatsby new` in this repository.
 
-1. **Option A – Using Gatsby CLI**:
-   ```bash
-   # Install Gatsby CLI globally
-   yarn global add gatsby-cli
-   
-   # IMPORTANT:
-   # - Do NOT run "gatsby new . --ts" in this repository root
-   #   while it contains files.
-   # - Gatsby will refuse to initialize a new site in a non-empty directory.
-   #
-   # Recommended workflow:
-   # 1) Initialize Gatsby in a NEW empty subdirectory:
-   gatsby new site --ts   # creates ./site with a fresh Gatsby + TypeScript starter
-   #
-   # 2) BACK UP important files at the repository root BEFORE moving anything:
-   #    mkdir -p backup-root-config
-   #    cp LICENSE README.md .editorconfig .gitignore backup-root-config 2>/dev/null || true
-   #
-   # 3) If you want the project at the repository root:
-   #    - Move the contents of ./site into the repository root,
-   #      being careful NOT to overwrite your backed-up files
-   #    - Restore LICENSE, README.md, .editorconfig, .gitignore,
-   #      and any other preserved files from backup-root-config as needed
-   #
-   # If you are unsure or want a safer path, prefer Option B (manual setup) below.
-   ```
+When changing dependencies:
 
-2. **Option B – Manual setup**:
-   ```bash
-   # Add Gatsby dependencies to package.json
-   yarn add gatsby react react-dom
-   yarn add -D typescript @types/react @types/react-dom @types/node
-   yarn add gatsby-plugin-typescript
-   
-   # Create required Gatsby files:
-   # - gatsby-config.ts (or .js)
-   # - gatsby-node.ts (or .js)
-   # - gatsby-browser.ts (or .js)
-   # - src/pages/index.tsx
-   ```
-
-3. **Add Tailwind CSS** (per README):
-   ```bash
-   yarn add tailwindcss postcss autoprefixer gatsby-plugin-postcss
-   npx tailwindcss init -p
-   # Configure gatsby-config.ts and tailwind.config.js
-   ```
+- Use `pnpm add` or `pnpm add -D`.
+- Run `pnpm install` after editing `package.json`.
+- Commit the resulting `package.json` and `pnpm-lock.yaml` changes together.
 
 ## Validation & CI/CD
 
-**Current State**: NO GitHub Actions workflows or CI/CD pipelines exist yet.
+**Current State**: GitHub Pages deployment is configured in
+`.github/workflows/gatsby.yml`. The workflow installs pnpm 11.19.0, sets up Node
+22.13.0, runs `pnpm install --frozen-lockfile`, and builds with `pnpm build`.
 
-**Expected validation steps** (once a project is initialized):
+**Expected validation steps**:
 
-1. TypeScript compilation check: `yarn type-check` (or `tsc --noEmit`)
-2. Linting: `yarn lint` (if ESLint configured)
-3. Build verification: `yarn build` (must complete without errors)
-4. Tests: `yarn test` (if configured)
-5. Format check: `yarn format --check` (if Prettier configured)
-
-**Recommended GitHub Actions workflow** (to be added):
-
-- Trigger on: push, pull_request
-- Steps: Install dependencies → Type check → Lint → Build → Test
-- Consider: Deploy to GitHub Pages on push to the main branch
+1. TypeScript compilation check: `pnpm run typecheck` (or `tsc --noEmit`)
+2. Linting: `pnpm lint` (if ESLint configured)
+3. Build verification: `pnpm build` (must complete without errors)
+4. Tests: `pnpm test` (if configured)
+5. Format check: `pnpm format --check` (if Prettier configured)
 
 ## Common Gatsby Pitfalls & Workarounds
 
 These issues may occur once Gatsby is initialized:
 
-1. **Cache corruption**: If builds fail with cryptic errors, run `yarn clean`
+1. **Cache corruption**: If builds fail with cryptic errors, run `pnpm clean`
    or `rm -rf .cache public`
 2. **GraphQL schema conflicts**: Restart dev server after adding new data
    sources
 3. **Module resolution**: Gatsby uses custom webpack config; path aliases must
    be configured in both `tsconfig.json` and `gatsby-config.ts`
-4. **Node.js version**: Gatsby requires Node 18+; verify version before
-   reporting issues
+4. **Node.js version**: This project requires Node v20.19.0 or v22.13.0+;
+   verify version before reporting issues
 5. **Sharp/image processing**: Native dependencies may need rebuild:
-   `yarn install --force`
+   `pnpm install --force`
 6. **Environment variables**: Prefix with `GATSBY_` to make available in
    browser code
 
@@ -234,33 +175,30 @@ When implementing features:
     - `static/` - Files copied directly to public/ (favicon, robots.txt)
 
 5. **Testing changes**:
-    - Run dev server: `yarn develop`
+    - Run dev server: `pnpm develop`
     - Visit `http://localhost:8000` to preview
     - GraphiQL available at `http://localhost:8000/___graphql`
     - Check the browser console for errors
-    - Verify TypeScript compilation: `yarn type-check`
-    - Run full build: `yarn build` (test production output)
+    - Verify TypeScript compilation: `pnpm run typecheck`
+    - Run full build: `pnpm build` (test production output)
 
 ## Dependencies
 
-**Current**: None (package.json has no dependencies or devDependencies)
-
-**Expected after initialization**:
+**Current**:
 
 - Core: `gatsby`, `react`, `react-dom`
 - TypeScript: `typescript`, type definitions (`@types/*`)
 - Tailwind: `tailwindcss`, `postcss`, `autoprefixer`
-- Gatsby plugins: `gatsby-plugin-typescript`, `gatsby-plugin-postcss`, others
-  as needed
-- Storybook: `@storybook/react`, `@storybook/addon-*` (if implemented)
-- MDX: `gatsby-plugin-mdx`, `@mdx-js/react` (if implemented)
+- Gatsby plugins: `gatsby-plugin-postcss`, `gatsby-plugin-mdx`,
+  `gatsby-plugin-image`, and related Gatsby packages
+- Storybook: `@storybook/react-webpack5`, `@storybook/addon-*`
+- MDX: `gatsby-plugin-mdx`, `@mdx-js/react`
 
 ### When adding dependencies
 
 - Prefer stable versions over `latest` tag
-- After editing `package.json`, run `yarn install` to create or update the
-  `yarn.lock` file, and commit any resulting changes (including a newly
-  created `yarn.lock`).
+- After editing `package.json`, run `pnpm install` to update `pnpm-lock.yaml`,
+  and commit any resulting changes.
 - Document major dependency additions in README if they affect setup
 
 ## Key Facts
