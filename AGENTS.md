@@ -16,34 +16,20 @@ the stage affects a decision and is unclear, ask before proceeding.
 
 ## Required AI Context
 
-Before giving architectural advice or changing files, read:
+This file provides repository-specific operating context; the numbered rule
+files in `.ai/rules/` define the detailed behavior contract. Before giving
+architectural advice or changing files, read:
 
 - `README.md` for repository purpose, stack, setup, and structure.
-- The project AI rules are listed below for assistant behavior.
-    - `.ai/rules/00-role-and-scope.md`
-    - `.ai/rules/01-project-goal.md`
-    - `.ai/rules/02-operating-mode.md`
-    - `.ai/rules/03-decomposition-and-reasoning.md`
-    - `.ai/rules/04-clarification-policy.md`
-    - `.ai/rules/05-artifact-generation-policy.md`
-    - `.ai/rules/06-stage-awareness.md`
-    - `.ai/rules/07-decision-guidance.md`
-    - `.ai/rules/08-technical-scope-awareness.md`
-    - `.ai/rules/09-communication-style.md`
-    - `.ai/rules/10-control-and-confirmation.md`
+- Every file in `.ai/rules/`. These files are mandatory and
+  complementary; each covers a distinct aspect of assistant behavior.
 
-These files are authoritative for assistant behavior. In short:
-
-- Default to advisory mode.
-- Prefer reasoning, trade-offs, and architectural clarity over fast output.
-- Do not generate code, documents, diagrams, configs, copy, or snippets unless
-  the user explicitly asks for an action verb such as `create`, `generate`,
-  `write`, `draft`, or `produce`.
-- Pause for confirmation at major architectural or strategic decision points.
-- Use professional, concise, technical English.
-
-If this file conflicts with `.ai/rules/*`, follow `.ai/rules/*` for assistant
-behavior and update this file only after explicit user direction.
+Do not treat `.ai/rules/` as optional reference material or use a subset as a
+shortcut. If this file conflicts with a rule file, follow the rule file and
+surface the discrepancy in the response. Request clarification when the
+conflict cannot be resolved without a judgment call about project goals or
+scope. If two rule files conflict, surface the conflict and request
+clarification. Update this file only after explicit user direction.
 
 ## Coding Conventions
 
@@ -60,7 +46,17 @@ behavior and update this file only after explicit user direction.
       if an IDE inserts them
     - trailing commas (`trailingComma: "all"`)
     - `arrowParens: "always"`
+    - `quoteProps: "consistent"` — object-literal keys follow the majority
+      quoting style in the literal
+    - Tailwind classes are auto-sorted by `prettier-plugin-tailwindcss`; do not
+      manually reorder them
 - Avoid unrelated formatting churn in files outside the requested change.
+
+## Package Management
+
+- Use pnpm for dependency installation and package scripts.
+- Keep `pnpm-lock.yaml` aligned with `package.json` when dependencies change.
+- Do not introduce Yarn lockfiles or Yarn commands.
 
 ## Design Direction
 
@@ -78,7 +74,7 @@ choices that make the portfolio harder to maintain.
 
 ## Change Workflow
 
-1. Read `.ai/rules/*` and the relevant project files.
+1. Read `README.md`, `.ai/rules/*`, and the relevant project files.
 2. Identify the current stage from the available context when giving broad
    guidance.
 3. For ambiguous requests, decompose the problem and ask for the missing
@@ -87,6 +83,17 @@ choices that make the portfolio harder to maintain.
    change that satisfies the request.
 5. Run the most relevant verification command available.
 6. Report what changed and any verification gaps.
+
+### Verification Commands
+
+- `pnpm run typecheck` for TypeScript changes.
+- `pnpm run build` for production-build verification.
+- `pnpm exec prettier --check .` for formatting verification.
+
+Use `pnpm run build` as the general-purpose fallback when no more targeted
+verification command applies.
+
+For CI and deployment behavior, read `.github/workflows/`.
 
 ## Git Safety
 
