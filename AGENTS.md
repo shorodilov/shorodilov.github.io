@@ -46,8 +46,8 @@ clarification. Update this file only after explicit user direction.
       if an IDE inserts them
     - trailing commas (`trailingComma: "all"`)
     - `arrowParens: "always"`
-    - `quoteProps: "consistent"` — object-literal keys follow the majority
-      quoting style in the literal
+    - `quoteProps: "consistent"` — if any key in an object literal requires
+      quotes, Prettier quotes all keys in that object
     - Tailwind classes are auto-sorted by `prettier-plugin-tailwindcss`; do not
       manually reorder them
 - Avoid unrelated formatting churn in files outside the requested change.
