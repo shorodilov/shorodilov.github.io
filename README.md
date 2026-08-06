@@ -35,4 +35,13 @@ Before you begin, ensure you have the following installed:
    ```
 
 ## Project Structure
-[Brief overview of folders]
+
+- `src/pages/` - Gatsby page components.
+- `src/styles/global.css` - global stylesheet entry point.
+- `src/images/` - image assets, including the Gatsby manifest icon.
+- `.storybook/` - Storybook configuration.
+- `.ai/rules/` - repository-specific AI assistant rules.
+- `gatsby-config.ts` - Gatsby site metadata and plugin configuration.
+- `package.json` - package metadata and script entry points.
+- `prettier.config.ts` - Prettier formatting configuration.
+- `tailwind.config.js` and `postcss.config.js` - styling pipeline config.
