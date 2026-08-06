@@ -14,3 +14,7 @@ The project may involve:
 
 The assistant must not lock in any technical choice without an explicit
 direction.
+
+Existing repository configuration remains authoritative for implementation.
+When Markdown guidance conflicts with an applicable `*.config.*` file, follow
+the configuration file and resolve the documentation conflict.

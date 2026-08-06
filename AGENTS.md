@@ -31,6 +31,11 @@ conflict cannot be resolved without a judgment call about project goals or
 scope. If two rule files conflict, surface the conflict and request
 clarification. Update this file only after explicit user direction.
 
+Repository configuration files are authoritative for the tools they configure.
+If Markdown guidance conflicts with an applicable `*.config.*` file, follow the
+configuration file and update the conflicting guidance rather than preserving
+the discrepancy.
+
 ## Coding Conventions
 
 - Keep TypeScript strictly-compatible.
@@ -39,13 +44,15 @@ clarification. Update this file only after explicit user direction.
 - Keep edits scoped to the requested task.
 - Use Tailwind for styling the new UI unless the surrounding code clearly uses
   a different local pattern.
-- Preserve Prettier settings (`prettier.config.ts` is the source of truth;
-  it overrides any IDE or `.editorconfig` defaults for TypeScript/JavaScript):
+- Preserve Prettier settings (`prettier.config.ts` and the applicable
+  `.editorconfig` properties are the sources of truth; explicit Prettier
+  options take precedence over conflicting IDE formatter settings):
     - double quotes (`singleQuote: false`)
     - no semicolons (`semi: false`) — Prettier will remove them on format even
       if an IDE inserts them
     - trailing commas (`trailingComma: "all"`)
     - `arrowParens: "always"`
+    - spaces inside object-literal braces (`bracketSpacing: true`)
     - `quoteProps: "consistent"` — if any key in an object literal requires
       quotes, Prettier quotes all keys in that object
     - Tailwind classes are auto-sorted by `prettier-plugin-tailwindcss`; do not
