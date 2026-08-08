@@ -4,51 +4,55 @@
 &:where([data-theme="dark"], [data-theme="dark"] *)
 );
 
-/* Raw design values */
+/*
+ * Token layers:
+ * - --ref-*: private, theme-independent design values.
+ * - --sys-*: private, theme-dependent semantic values.
+ * - @theme: public Tailwind utility API.
+ */
 :root {
-    /* Palette */
-    --palette-white: #ffffff;
+    /* Reference colors */
+    --ref-color-white: #ffffff;
 
-    --palette-green-100: #59b53d;
-    --palette-green-200: #3e7f2b;
-    --palette-green-300: #366e25;
-    --palette-green-400: #3e4a36;
-    --palette-green-500: #333f2a;
+    --ref-color-green-100: #59b53d;
+    --ref-color-green-200: #3e7f2b;
+    --ref-color-green-300: #366e25;
+    --ref-color-green-400: #3e4a36;
+    --ref-color-green-500: #333f2a;
 
-    --palette-dark-100: #161616;
-    --palette-dark-200: #262626;
-    --palette-dark-300: #2d2d2d;
-    --palette-dark-400: #424242;
+    --ref-color-dark-100: #161616;
+    --ref-color-dark-200: #262626;
+    --ref-color-dark-300: #2d2d2d;
+    --ref-color-dark-400: #424242;
 
-    /* Typography */
-    --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-    --font-display: "Cascadia Code", ui-monospace, "SFMono-Regular", Consolas, monospace;
+    /* Reference typography */
+    --ref-font-family-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --ref-font-family-display: "Cascadia Code", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
-    /* Spacing: keep this deliberately small */
-    --space-page: clamp(1.25rem, 4vw, 3.75rem);
-    --space-section: clamp(2rem, 5vw, 4rem);
+    /* Reference spacing: keep this deliberately small */
+    --ref-space-page: clamp(1.25rem, 4vw, 3.75rem);
+    --ref-space-section: clamp(2rem, 5vw, 4rem);
 
-    /* Shape */
-    --radius-control: 0.5rem;
-    --radius-card: 0.75rem;
-    --radius-shell: 1rem;
-    --radius-round: 9999px;
+    /* Reference shape */
+    --ref-radius-control: 0.5rem;
+    --ref-radius-card: 0.75rem;
+    --ref-radius-shell: 1rem;
+    --ref-radius-round: 9999px;
 
-    /* Layout */
-    --width-page: 90rem;
-    --width-readable: 70ch;
-    --width-sidebar: 27.5rem;
+    /* Reference layout */
+    --ref-width-page: 90rem;
+    --ref-width-readable: 70ch;
+    --ref-width-sidebar: 27.5rem;
 
-    /* Default/fallback theme */
-    --sys-background: var(--palette-white);
-    --sys-surface: #f5f5f5;
-    --sys-surface-raised: #ededed;
-    --sys-text: var(--palette-dark-100);
-    --sys-text-muted: #626262;
-    --sys-border: #dedede;
-    --sys-accent: var(--palette-green-300);
-    --sys-accent-hover: var(--palette-green-200);
+    /* System colors: default/fallback theme */
+    --sys-color-background: var(--ref-color-white);
+    --sys-color-surface: #f5f5f5;
+    --sys-color-surface-raised: #ededed;
+    --sys-color-foreground: var(--ref-color-dark-100);
+    --sys-color-foreground-muted: #626262;
+    --sys-color-border: #dedede;
+    --sys-color-accent: var(--ref-color-green-300);
+    --sys-color-accent-hover: var(--ref-color-green-200);
 }
 
 [data-theme="light"] {
@@ -58,33 +62,43 @@
 [data-theme="dark"] {
     color-scheme: dark;
 
-    --sys-background: var(--palette-dark-100);
-    --sys-surface: var(--palette-dark-200);
-    --sys-surface-raised: var(--palette-dark-300);
-    --sys-text: var(--palette-white);
-    --sys-text-muted: #a3a3a3;
-    --sys-border: var(--palette-dark-300);
-    --sys-accent: var(--palette-green-100);
-    --sys-accent-hover: var(--palette-green-200);
+    --sys-color-background: var(--ref-color-dark-100);
+    --sys-color-surface: var(--ref-color-dark-200);
+    --sys-color-surface-raised: var(--ref-color-dark-300);
+    --sys-color-foreground: var(--ref-color-white);
+    --sys-color-foreground-muted: #a3a3a3;
+    --sys-color-border: var(--ref-color-dark-300);
+    --sys-color-accent: var(--ref-color-green-100);
+    --sys-color-accent-hover: var(--ref-color-green-200);
 }
 
-/* Expose selected tokens as Tailwind utilities */
+/* Public Tailwind utility API */
 @theme inline {
-    --font-sans: var(--font-body);
-    --font-display: var(--font-display);
+    --color-*: initial;
 
-    --color-background: var(--sys-background);
-    --color-surface: var(--sys-surface);
-    --color-surface-raised: var(--sys-surface-raised);
-    --color-foreground: var(--sys-text);
-    --color-muted: var(--sys-text-muted);
-    --color-border: var(--sys-border);
-    --color-accent: var(--sys-accent);
-    --color-accent-hover: var(--sys-accent-hover);
+    --font-sans: var(--ref-font-family-body);
+    --font-display: var(--ref-font-family-display);
 
-    --radius-control: var(--radius-control);
-    --radius-card: var(--radius-card);
-    --radius-shell: var(--radius-shell);
+    --color-background: var(--sys-color-background);
+    --color-surface: var(--sys-color-surface);
+    --color-surface-raised: var(--sys-color-surface-raised);
+    --color-foreground: var(--sys-color-foreground);
+    --color-foreground-muted: var(--sys-color-foreground-muted);
+    --color-border: var(--sys-color-border);
+    --color-accent: var(--sys-color-accent);
+    --color-accent-hover: var(--sys-color-accent-hover);
+
+    --spacing-page: var(--ref-space-page);
+    --spacing-section: var(--ref-space-section);
+
+    --container-page: var(--ref-width-page);
+    --container-readable: var(--ref-width-readable);
+    --container-sidebar: var(--ref-width-sidebar);
+
+    --radius-control: var(--ref-radius-control);
+    --radius-card: var(--ref-radius-card);
+    --radius-shell: var(--ref-radius-shell);
+    --radius-round: var(--ref-radius-round);
 }
 
 html,
@@ -98,15 +112,15 @@ body,
 }
 
 html {
-    background: var(--sys-background);
+    background: var(--sys-color-background);
 }
 
 body {
     margin: 0;
     min-width: 20rem;
-    background: var(--sys-background);
-    color: var(--sys-text);
-    font-family: var(--font-body), serif;
+    background: var(--sys-color-background);
+    color: var(--sys-color-foreground);
+    font-family: var(--ref-font-family-body);
     font-size: 1rem;
     line-height: 1.375;
     -webkit-font-smoothing: antialiased;
