@@ -15,12 +15,15 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
+    "dev:gatsby": "gatsby develop",
+    "dev:storybook": "storybook dev -p 6006",
     "build": "gatsby build",
+    "build:gatsby": "gatsby build",
+    "build:storybook": "storybook build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
