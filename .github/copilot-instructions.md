@@ -1,31 +1,70 @@
 # Copilot Instructions for CV Website
 
-## Required Reading
+## Sources of truth
 
-`AGENTS.md` is the primary mandatory entry point for all AI agents, including
-Copilot. Read it before giving architectural advice or changing files.
+Do not duplicate configuration values in this document. Read the relevant
+configuration file before making assumptions, and update this document only
+when workflow guidance changes.
 
-Then read every file in `.ai/rules/`. The rules are mandatory and
-complementary; they cover individual aspects of assistant behavior and must be
-applied together.
+- `package.json` defines the package manager, scripts, and dependencies.
+- `pnpm-lock.yaml` locks dependency versions.
+- `tsconfig.json` defines the TypeScript compiler options and included files.
+- `prettier.config.ts` defines formatting, including quote and semicolon style.
+- `gatsby-config.ts` defines Gatsby metadata and plugins.
+- `postcss.config.ts` and `tailwind.config.ts` define the styling toolchain.
+- `.storybook/*.ts` defines Storybook.
+- `.github/workflows/*.yaml` defines CI and deployment behavior.
 
-## Repository Sources
+If prose conflicts with configuration, follow the configuration and correct the
+prose in the same change.
 
-Use the following project documents as their designated sources of truth:
+## Project overview
 
-- `README.md`: project purpose, setup, and structure.
-- `package.json`: dependencies, package manager, and available scripts.
-- `prettier.config.ts`: TypeScript and JavaScript formatting configuration.
-- `tailwind.config.js`: Tailwind content discovery and theme configuration.
-- `postcss.config.js`: PostCSS plugin configuration.
-- `.editorconfig`: general editor conventions and file-specific settings.
-- `.github/workflows/`: CI and deployment behavior.
-- `src/`: current application source layout; inspect its directories rather
-  than assuming a component structure.
+This repository contains a TypeScript-first personal portfolio built with
+Gatsby and React and deployed as a static site to GitHub Pages. Tailwind CSS and
+PostCSS provide styling, Storybook documents components, and MDX support is
+enabled through Gatsby.
 
-This file intentionally does not repeat repository rules or operational facts.
-Consult the sources above so the instructions remain current.
+Prefer `.ts` and `.tsx` files over `.js` and `.jsx`. Keep configuration files in
+TypeScript when the associated tool supports TypeScript configuration natively.
+Do not add a runtime TypeScript loader unless a configured tool demonstrably
+requires one.
 
-Configuration files are authoritative for the tools they configure. If any
-Markdown instruction conflicts with an applicable `*.config.*` file, follow
-the configuration and correct the stale Markdown guidance.
+## Setup and commands
+
+Use the pnpm version declared by `packageManager` in `package.json` and a Node.js
+version compatible with it. CI is the authoritative reference environment.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm build
+pnpm storybook
+pnpm build-storybook
+```
+
+Only invoke scripts that currently exist in `package.json`. Do not document or
+assume lint, format, or test scripts until they are added there.
+
+## Working conventions
+
+- Run `pnpm typecheck` after changing TypeScript or TypeScript configuration.
+- Run `pnpm build` for changes that can affect Gatsby's production output.
+- Run `pnpm build-storybook` for Storybook configuration or component changes.
+- Run `pnpm install` after dependency changes and commit the resulting
+  `pnpm-lock.yaml` update.
+- Follow `prettier.config.ts` for formatting rather than restating its options
+  here.
+- Keep reusable components in `src/components`, pages in `src/pages`, global
+  styles in `src/styles`, and image assets in `src/images`.
+- Keep the site static; do not introduce a required server-side runtime.
+- Prefix browser-exposed environment variables with `GATSBY_`.
+
+## Gatsby troubleshooting
+
+- If Gatsby cache state causes unexpected failures, run `pnpm clean` and retry.
+- Restart Gatsby after schema or data-source changes.
+- Configure path aliases consistently in TypeScript and Gatsby when adding
+  them.
+- Native image processing depends on Sharp; ensure dependency build scripts ran
+  before diagnosing image-related build failures.
