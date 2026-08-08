@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/cascadia-code':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource-variable/inter':
+        specifier: ^5.3.0
+        version: 5.3.0
       '@mdx-js/react':
         specifier: ^3.1.1
         version: 3.1.1(@types/react@18.3.31)(react@18.3.1)
@@ -962,6 +968,12 @@ packages:
 
   '@expo/sudo-prompt@9.3.2':
     resolution: {integrity: sha512-HHQigo3rQWKMDzYDLkubN5WQOYXJJE2eNqIQC2axC2iO3mHdwnIR7FgZVvHWtBwAdzBgAP0ECp8KqS8TiMKvgw==}
+
+  '@fontsource-variable/cascadia-code@5.3.0':
+    resolution: {integrity: sha512-6I6M029Lum62MGmP0o+rXRrIBiIiptNDC4slPKLPUJiSB7NHZTLb+Ihk9G7jLvUfWziGXHJLjJPJLBzlEPjS1g==}
+
+  '@fontsource-variable/inter@5.3.0':
+    resolution: {integrity: sha512-OupL48va4JNofb97w6NYeF9S7W/kHNKM0Er8Dem5nqi4jeOLrVJDoE8tZEpnMJmtkvNbB1EIPPwHcdkF6b1oUA==}
 
   '@gatsbyjs/parcel-namer-relative-to-cwd@2.16.0':
     resolution: {integrity: sha512-E05myRVDUgUXS41wWxBOc0wPub1WAty3M6bO2vGctToXO11Lw9tci9banlSQojBB12ExsmRqNW90FxtVNTbfQA==}
@@ -8455,6 +8467,10 @@ snapshots:
       - supports-color
 
   '@expo/sudo-prompt@9.3.2': {}
+
+  '@fontsource-variable/cascadia-code@5.3.0': {}
+
+  '@fontsource-variable/inter@5.3.0': {}
 
   '@gatsbyjs/parcel-namer-relative-to-cwd@2.16.0(@parcel/core@2.8.3)':
     dependencies:
