@@ -25,7 +25,7 @@ const getSafeRel = (rel: string | undefined, target: string | undefined) => {
         return rel
     }
 
-    const values = new Set(rel?.split(/\s+/).filter(Boolean))
+const values = new Set((rel ?? "").split(/\s+/).filter(Boolean))
     values.add("noopener")
     values.add("noreferrer")
 
