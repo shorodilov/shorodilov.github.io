@@ -69,7 +69,8 @@ ij_editorconfig_space_before_colon = false
 ij_editorconfig_space_before_comma = false
 ij_editorconfig_spaces_around_assignment_operators = true
 
-[{*.ats,*.cts,*.mts,*.ts}]
+[{*.ats,*.cts,*.mts,*.ts,*.tsx}]
+indent_size = 2
 ij_continuation_indent_size = 4
 ij_typescript_align_imports = false
 ij_typescript_align_multiline_array_initializer_expression = false
@@ -224,7 +225,7 @@ ij_typescript_spaces_within_imports = false
 ij_typescript_spaces_within_interpolation_expressions = false
 ij_typescript_spaces_within_method_call_parentheses = false
 ij_typescript_spaces_within_method_parentheses = false
-ij_typescript_spaces_within_object_literal_braces = false
+ij_typescript_spaces_within_object_literal_braces = true
 ij_typescript_spaces_within_object_type_braces = true
 ij_typescript_spaces_within_parentheses = false
 ij_typescript_spaces_within_switch_parentheses = false
@@ -241,13 +242,14 @@ ij_typescript_use_explicit_js_extension = auto
 ij_typescript_use_import_type = auto
 ij_typescript_use_path_mapping = always
 ij_typescript_use_public_modifier = false
-ij_typescript_use_semicolon_after_statement = true
+ij_typescript_use_semicolon_after_statement = false
 ij_typescript_var_declaration_wrap = normal
 ij_typescript_while_brace_force = never
 ij_typescript_while_on_new_line = false
 ij_typescript_wrap_comments = false
 
-[{*.cjs,*.es6,*.js,*.mjs}]
+[{*.cjs,*.es6,*.js,*.mjs,*.jsx}]
+indent_size = 2
 ij_continuation_indent_size = 4
 ij_javascript_align_imports = false
 ij_javascript_align_multiline_array_initializer_expression = false
@@ -398,7 +400,7 @@ ij_javascript_spaces_within_imports = false
 ij_javascript_spaces_within_interpolation_expressions = false
 ij_javascript_spaces_within_method_call_parentheses = false
 ij_javascript_spaces_within_method_parentheses = false
-ij_javascript_spaces_within_object_literal_braces = false
+ij_javascript_spaces_within_object_literal_braces = true
 ij_javascript_spaces_within_object_type_braces = true
 ij_javascript_spaces_within_parentheses = false
 ij_javascript_spaces_within_switch_parentheses = false
@@ -415,7 +417,7 @@ ij_javascript_use_explicit_js_extension = auto
 ij_javascript_use_import_type = auto
 ij_javascript_use_path_mapping = always
 ij_javascript_use_public_modifier = false
-ij_javascript_use_semicolon_after_statement = true
+ij_javascript_use_semicolon_after_statement = false
 ij_javascript_var_declaration_wrap = normal
 ij_javascript_while_brace_force = never
 ij_javascript_while_on_new_line = false
