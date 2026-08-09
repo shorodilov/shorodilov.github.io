@@ -149,7 +149,7 @@ const ColorSection = ({ description, title, tokens }: ColorSectionProps) => (
 )
 
 const Colors = () => (
-    <main className="bg-background p-page text-foreground min-h-screen">
+    <main className="bg-background p-page-gutter text-foreground min-h-screen">
         <div className="max-w-page space-y-section mx-auto">
             <header className="max-w-readable space-y-2">
                 <h1 className="type-heading-1-caps">Colors</h1>

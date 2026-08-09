@@ -34,7 +34,7 @@
         "Cascadia Code Variable", "Cascadia Code", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
     /* Reference spacing: keep this deliberately small */
-    --ref-space-page: clamp(1.25rem, 4vw, 3.75rem);
+    --ref-space-page-gutter: clamp(1.25rem, 4vw, 3.75rem);
     --ref-space-section: clamp(2rem, 5vw, 4rem);
 
     /* Reference shape */
@@ -108,7 +108,8 @@
     --color-action-primary-disabled-foreground: var(--sys-color-action-primary-disabled-foreground);
     --color-focus-ring: var(--sys-color-focus-ring);
 
-    --spacing-page: var(--ref-space-page);
+    /* Width utilities also read spacing tokens, so keep suffixes distinct. */
+    --spacing-page-gutter: var(--ref-space-page-gutter);
     --spacing-section: var(--ref-space-section);
 
     --container-page: var(--ref-width-page);

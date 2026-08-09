@@ -1,5 +1,4 @@
-// Suppress potential type resolution errors for Storybook's webpack5 preview types
-// @ts-expect-error -- Storybook type definitions may not be available in the current TS configuration
+import * as React from "react"
 import { type Preview } from "@storybook/react-webpack5"
 import "../src/styles/global.css"
 
@@ -12,11 +11,10 @@ const preview: Preview = {
     decorators: [
         (Story, { globals }) => {
             if (typeof document !== "undefined") {
-                const theme = isTheme(globals.theme) ? globals.theme : defaultTheme
-                document.documentElement.dataset.theme = theme
+                document.documentElement.dataset.theme = isTheme(globals.theme) ? globals.theme : defaultTheme
             }
 
-            return Story()
+            return React.createElement(Story)
         },
     ],
     globalTypes: {
