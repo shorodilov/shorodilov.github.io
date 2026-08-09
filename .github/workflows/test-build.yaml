@@ -1,4 +1,4 @@
-name: Test Gatsby Build
+name: Test Project Builds
 on:
   pull_request:
     branches:
@@ -19,7 +19,11 @@ jobs:
           cache: true
       - name: Install project dependencies
         run: pnpm install --frozen-lockfile
+      - name: Check types
+        run: pnpm run typecheck
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: "true"
-        run: pnpm run build
+        run: pnpm run build:gatsby
+      - name: Build with Storybook
+        run: pnpm run build:storybook
