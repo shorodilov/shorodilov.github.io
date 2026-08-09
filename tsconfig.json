@@ -118,7 +118,6 @@
     "./gatsby-config.ts",
     "./gatsby-node.ts",
     "./postcss.config.ts",
-    "./tailwind.config.ts",
     "./plugins/**/*"
   ]
 }

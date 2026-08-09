@@ -44,4 +44,4 @@ Before you begin, ensure you have the following installed:
 - `gatsby-config.ts` - Gatsby site metadata and plugin configuration.
 - `package.json` - package metadata and script entry points.
 - `prettier.config.ts` - Prettier formatting configuration.
-- `tailwind.config.ts` and `postcss.config.ts` - styling pipeline config.
+- `postcss.config.ts` - PostCSS and Tailwind CSS pipeline configuration.
