@@ -22,6 +22,8 @@
     "build:storybook": "storybook build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006"
   },
@@ -52,15 +54,21 @@
     "@storybook/addon-styling-webpack": "^3.0.2",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.3",
     "@storybook/react-webpack5": "^10.5.6",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.3",
     "@types/node": "^20.19.43",
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "css-loader": "^7.1.4",
+    "jsdom": "^30.0.1",
     "postcss-loader": "^8.2.1",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.7.4",
     "storybook": "^10.5.6",
     "style-loader": "^4.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
   }
 }
