@@ -1,10 +1,9 @@
-// @ts-expect-error StorybookConfig type resolution can fail in this Storybook config context; runtime import is valid.
 import { type StorybookConfig } from "@storybook/react-webpack5"
 import * as os from "node:os"
 
 // noinspection JSUnusedGlobalSymbols
 const config: StorybookConfig = {
-    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+    stories: ["../src/**/*.stories.@(ts|tsx)"],
     addons: [
         "@storybook/addon-webpack5-compiler-swc",
         {
