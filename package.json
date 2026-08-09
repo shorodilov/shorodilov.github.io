@@ -14,16 +14,18 @@
     "tailwindcss"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "dev:gatsby": "gatsby develop",
-    "dev:storybook": "storybook dev -p 6006",
     "build": "gatsby build",
     "build:gatsby": "gatsby build",
     "build:storybook": "storybook build",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit",
-    "storybook": "storybook dev -p 6006"
+    "develop": "gatsby develop",
+    "dev:gatsby": "gatsby develop",
+    "dev:storybook": "storybook dev -p 6006",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "serve": "gatsby serve",
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/cascadia-code": "^5.3.0",
