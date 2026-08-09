@@ -1,0 +1,26 @@
+name: Run Type Check
+on:
+  pull_request:
+    branches:
+      - main
+    types: [ opened, reopened, synchronize ]
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  typecheck:
+    name: Check types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pnpm and Node.js
+        uses: pnpm/setup@v1
+        with:
+          runtime: node@22
+          cache: true
+      - name: Install project dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check types
+        run: pnpm run typecheck

@@ -1,4 +1,4 @@
-name: Test Gatsby Build
+name: Test Project Builds
 on:
   pull_request:
     branches:
@@ -8,7 +8,8 @@ on:
 permissions:
   contents: read
 jobs:
-  build:
+  gatsby:
+    name: Build with Gatsby
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -22,4 +23,18 @@ jobs:
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: "true"
-        run: pnpm run build
+        run: pnpm run build:gatsby
+  storybook:
+    name: Build with Storybook
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install pnpm and Node.js
+        uses: pnpm/setup@v1
+        with:
+          runtime: node@22
+          cache: true
+      - name: Install project dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build with Storybook
+        run: pnpm run build:storybook

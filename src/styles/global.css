@@ -1,1 +1,224 @@
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource-variable/cascadia-code/wght.css";
 @import "tailwindcss";
+
+@custom-variant dark (
+&:where([data-theme="dark"], [data-theme="dark"] *)
+);
+
+/*
+ * Token layers:
+ * - --ref-*: private, theme-independent design values.
+ * - --sys-*: private, theme-dependent semantic values.
+ * - @theme: public Tailwind utility API.
+ */
+:root {
+    /* Reference colors */
+    --ref-color-white: #ffffff;
+
+    --ref-color-green-100: #59b53d;
+    --ref-color-green-200: #3e7f2b;
+    --ref-color-green-300: #366e25;
+    --ref-color-green-400: #3e4a36;
+    --ref-color-green-500: #333f2a;
+
+    --ref-color-dark-100: #161616;
+    --ref-color-dark-200: #262626;
+    --ref-color-dark-300: #2d2d2d;
+    --ref-color-dark-400: #424242;
+
+    /* Reference typography */
+    --ref-font-family-body:
+        "Inter Variable", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --ref-font-family-display:
+        "Cascadia Code Variable", "Cascadia Code", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+    /* Reference spacing: keep this deliberately small */
+    --ref-space-page-gutter: clamp(1.25rem, 4vw, 3.75rem);
+    --ref-space-section: clamp(2rem, 5vw, 4rem);
+
+    /* Reference shape */
+    --ref-radius-control: 0.5rem;
+    --ref-radius-card: 0.75rem;
+    --ref-radius-shell: 1rem;
+    --ref-radius-round: 9999px;
+
+    /* Reference layout */
+    --ref-width-page: 90rem;
+    --ref-width-readable: 70ch;
+    --ref-width-sidebar: 27.5rem;
+
+    /* System colors: default/fallback theme */
+    --sys-color-background: var(--ref-color-white);
+    --sys-color-surface: #f5f5f5;
+    --sys-color-surface-raised: #ededed;
+    --sys-color-foreground: var(--ref-color-dark-100);
+    --sys-color-foreground-muted: #626262;
+    --sys-color-border: #dedede;
+    --sys-color-accent: var(--ref-color-green-300);
+
+    /* Primary action colors */
+    --sys-color-action-primary: var(--ref-color-green-200);
+    --sys-color-action-primary-hover: var(--ref-color-green-300);
+    --sys-color-action-primary-focus: var(--sys-color-action-primary-hover);
+    --sys-color-action-primary-foreground: var(--ref-color-white);
+    --sys-color-action-primary-disabled: var(--sys-color-surface-raised);
+    --sys-color-action-primary-disabled-foreground: var(--sys-color-foreground-muted);
+    --sys-color-focus-ring: var(--ref-color-dark-100);
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --sys-color-background: var(--ref-color-dark-100);
+    --sys-color-surface: var(--ref-color-dark-200);
+    --sys-color-surface-raised: var(--ref-color-dark-300);
+    --sys-color-foreground: var(--ref-color-white);
+    --sys-color-foreground-muted: #a3a3a3;
+    --sys-color-border: var(--ref-color-dark-300);
+    --sys-color-accent: var(--ref-color-green-100);
+    --sys-color-action-primary-disabled: #315626;
+    --sys-color-action-primary-disabled-foreground: #737373;
+    --sys-color-focus-ring: var(--ref-color-white);
+}
+
+/* Public Tailwind utility API */
+@theme inline {
+    --color-*: initial;
+
+    --font-sans: var(--ref-font-family-body);
+    --font-display: var(--ref-font-family-display);
+
+    --color-background: var(--sys-color-background);
+    --color-surface: var(--sys-color-surface);
+    --color-surface-raised: var(--sys-color-surface-raised);
+    --color-foreground: var(--sys-color-foreground);
+    --color-foreground-muted: var(--sys-color-foreground-muted);
+    --color-border: var(--sys-color-border);
+    --color-accent: var(--sys-color-accent);
+    --color-action-primary: var(--sys-color-action-primary);
+    --color-action-primary-hover: var(--sys-color-action-primary-hover);
+    --color-action-primary-focus: var(--sys-color-action-primary-focus);
+    --color-action-primary-foreground: var(--sys-color-action-primary-foreground);
+    --color-action-primary-disabled: var(--sys-color-action-primary-disabled);
+    --color-action-primary-disabled-foreground: var(--sys-color-action-primary-disabled-foreground);
+    --color-focus-ring: var(--sys-color-focus-ring);
+
+    /* Width utilities also read spacing tokens, so keep suffixes distinct. */
+    --spacing-page-gutter: var(--ref-space-page-gutter);
+    --spacing-section: var(--ref-space-section);
+
+    --container-page: var(--ref-width-page);
+    --container-readable: var(--ref-width-readable);
+    --container-sidebar: var(--ref-width-sidebar);
+
+    --radius-control: var(--ref-radius-control);
+    --radius-card: var(--ref-radius-card);
+    --radius-shell: var(--ref-radius-shell);
+    --radius-round: var(--ref-radius-round);
+}
+
+/* Composite typography roles */
+@utility type-body {
+    font-family: var(--ref-font-family-body);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+}
+
+@utility type-heading-4-caps {
+    font-family: var(--ref-font-family-display);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+}
+
+@utility type-heading-3 {
+    font-family: var(--ref-font-family-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+
+@utility type-heading-2-caps {
+    font-family: var(--ref-font-family-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+    text-transform: uppercase;
+}
+
+@utility type-heading-2 {
+    font-family: var(--ref-font-family-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+}
+
+@utility type-heading-1-caps {
+    font-family: var(--ref-font-family-display);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+}
+
+@utility type-button {
+    font-family: var(--ref-font-family-display);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+
+@utility type-button-sm {
+    font-family: var(--ref-font-family-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.125rem;
+}
+
+@utility type-caption {
+    font-family: var(--ref-font-family-display);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+@utility type-caption-caps {
+    font-family: var(--ref-font-family-body);
+    font-size: 0.625rem;
+    font-weight: 500;
+    line-height: 1rem;
+    text-transform: uppercase;
+}
+
+html,
+body,
+#___gatsby {
+    height: 100%;
+}
+
+#gatsby-focus-wrapper {
+    min-height: 100%;
+}
+
+html {
+    background: var(--sys-color-background);
+}
+
+body {
+    margin: 0;
+    min-width: 20rem;
+    background: var(--sys-color-background);
+    color: var(--sys-color-foreground);
+    font-family: var(--ref-font-family-body);
+    font-size: 1rem;
+    line-height: 1.375;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
