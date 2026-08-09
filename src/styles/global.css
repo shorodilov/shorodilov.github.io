@@ -72,6 +72,14 @@
     --sys-color-action-secondary-foreground: var(--ref-color-white);
     --sys-color-action-secondary-disabled: var(--sys-color-surface-raised);
     --sys-color-action-secondary-disabled-foreground: var(--sys-color-foreground-muted);
+
+    /* Tertiary action colors */
+    --sys-color-action-tertiary: var(--sys-color-surface-raised);
+    --sys-color-action-tertiary-hover: var(--sys-color-border);
+    --sys-color-action-tertiary-focus: var(--sys-color-action-tertiary-hover);
+    --sys-color-action-tertiary-foreground: var(--sys-color-foreground);
+    --sys-color-action-tertiary-disabled: var(--sys-color-surface);
+    --sys-color-action-tertiary-disabled-foreground: var(--sys-color-foreground-muted);
     --sys-color-focus-ring: var(--ref-color-dark-100);
 }
 
@@ -92,6 +100,10 @@
     --sys-color-action-primary-disabled: #315626;
     --sys-color-action-primary-disabled-foreground: #737373;
     --sys-color-action-secondary-disabled-foreground: #737373;
+    --sys-color-action-tertiary-hover: var(--sys-color-surface);
+    --sys-color-action-tertiary-focus: var(--sys-color-action-tertiary-hover);
+    --sys-color-action-tertiary-disabled: var(--sys-color-surface);
+    --sys-color-action-tertiary-disabled-foreground: #737373;
     --sys-color-focus-ring: var(--ref-color-white);
 }
 
@@ -121,6 +133,12 @@
     --color-action-secondary-foreground: var(--sys-color-action-secondary-foreground);
     --color-action-secondary-disabled: var(--sys-color-action-secondary-disabled);
     --color-action-secondary-disabled-foreground: var(--sys-color-action-secondary-disabled-foreground);
+    --color-action-tertiary: var(--sys-color-action-tertiary);
+    --color-action-tertiary-hover: var(--sys-color-action-tertiary-hover);
+    --color-action-tertiary-focus: var(--sys-color-action-tertiary-focus);
+    --color-action-tertiary-foreground: var(--sys-color-action-tertiary-foreground);
+    --color-action-tertiary-disabled: var(--sys-color-action-tertiary-disabled);
+    --color-action-tertiary-disabled-foreground: var(--sys-color-action-tertiary-disabled-foreground);
     --color-focus-ring: var(--sys-color-focus-ring);
 
     /* Width utilities also read spacing tokens, so keep suffixes distinct. */
