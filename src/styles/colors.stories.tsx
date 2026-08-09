@@ -84,6 +84,11 @@ const semanticColors: ColorSwatchData[] = [
     },
     { label: "Border", source: "bg-border", swatchClassName: "bg-border" },
     { label: "Accent", source: "bg-accent", swatchClassName: "bg-accent" },
+    {
+        label: "Selected control",
+        source: "bg-control-selected",
+        swatchClassName: "bg-control-selected",
+    },
     { label: "Primary action", source: "bg-action-primary", swatchClassName: "bg-action-primary" },
     {
         label: "Primary action hover",
