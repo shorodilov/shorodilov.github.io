@@ -26,6 +26,8 @@
     "serve": "gatsby serve",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
     "test": "vitest run",
     "test:watch": "vitest",
@@ -73,5 +75,8 @@
     "style-loader": "^4.0.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=22.22.2"
   }
 }
