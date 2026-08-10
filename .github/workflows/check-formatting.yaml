@@ -1,4 +1,4 @@
-name: Check Formating
+name: Check Formatting
 on:
   pull_request:
     branches:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 jobs:
   formatting:
-    name: Check formating
+    name: Check formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -22,5 +22,5 @@ jobs:
           cache: true
       - name: Install project dependencies
         run: pnpm install --frozen-lockfile
-      - name: Check formating
+      - name: Check formatting
         run: pnpm run format:check

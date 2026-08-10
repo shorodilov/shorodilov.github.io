@@ -111,10 +111,12 @@
   "include": [
     "./.storybook/**/*",
     "./src/**/*",
+    "./tests/**/*",
     "./gatsby-browser.ts",
     "./gatsby-config.ts",
     "./gatsby-node.ts",
     "./postcss.config.ts",
+    "./vitest.config.mts",
     "./plugins/**/*"
   ]
 }
