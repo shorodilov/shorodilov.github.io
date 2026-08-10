@@ -84,6 +84,11 @@ const semanticColors: ColorSwatchData[] = [
     },
     { label: "Border", source: "bg-border", swatchClassName: "bg-border" },
     { label: "Accent", source: "bg-accent", swatchClassName: "bg-accent" },
+    {
+        label: "Selected control",
+        source: "bg-control-selected",
+        swatchClassName: "bg-control-selected",
+    },
     { label: "Primary action", source: "bg-action-primary", swatchClassName: "bg-action-primary" },
     {
         label: "Primary action hover",
@@ -109,6 +114,36 @@ const semanticColors: ColorSwatchData[] = [
         label: "Disabled action foreground",
         source: "bg-action-primary-disabled-foreground",
         swatchClassName: "bg-action-primary-disabled-foreground",
+    },
+    {
+        label: "Secondary action",
+        source: "bg-action-secondary",
+        swatchClassName: "bg-action-secondary",
+    },
+    {
+        label: "Secondary action hover",
+        source: "bg-action-secondary-hover",
+        swatchClassName: "bg-action-secondary-hover",
+    },
+    {
+        label: "Secondary action focus",
+        source: "bg-action-secondary-focus",
+        swatchClassName: "bg-action-secondary-focus",
+    },
+    {
+        label: "Secondary action foreground",
+        source: "bg-action-secondary-foreground",
+        swatchClassName: "bg-action-secondary-foreground",
+    },
+    {
+        label: "Secondary action disabled",
+        source: "bg-action-secondary-disabled",
+        swatchClassName: "bg-action-secondary-disabled",
+    },
+    {
+        label: "Disabled secondary foreground",
+        source: "bg-action-secondary-disabled-foreground",
+        swatchClassName: "bg-action-secondary-disabled-foreground",
     },
     { label: "Focus ring", source: "bg-focus-ring", swatchClassName: "bg-focus-ring" },
 ]
