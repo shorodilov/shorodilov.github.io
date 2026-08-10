@@ -5,57 +5,57 @@ import { describe, expect, it, vi } from "vitest"
 import { MenuToggle } from "./MenuToggle"
 
 describe("MenuToggle", () => {
-    it("describes the controlled navigation in each state", () => {
-        const { rerender } = render(<MenuToggle controls="primary-navigation" open={false} />)
+  it("describes the controlled navigation in each state", () => {
+    const { rerender } = render(<MenuToggle controls="primary-navigation" open={false} />)
 
-        const closedToggle = screen.getByRole("button", { name: "Open navigation menu" })
-        expect(closedToggle).toHaveAttribute("aria-controls", "primary-navigation")
-        expect(closedToggle).toHaveAttribute("aria-expanded", "false")
-        expect(closedToggle.querySelector("svg")).toHaveAttribute("aria-hidden", "true")
+    const closedToggle = screen.getByRole("button", { name: "Open navigation menu" })
+    expect(closedToggle).toHaveAttribute("aria-controls", "primary-navigation")
+    expect(closedToggle).toHaveAttribute("aria-expanded", "false")
+    expect(closedToggle.querySelector("svg")).toHaveAttribute("aria-hidden", "true")
 
-        rerender(<MenuToggle controls="primary-navigation" open />)
+    rerender(<MenuToggle controls="primary-navigation" open />)
 
-        expect(screen.getByRole("button", { name: "Close navigation menu" })).toHaveAttribute("aria-expanded", "true")
-    })
+    expect(screen.getByRole("button", { name: "Close navigation menu" })).toHaveAttribute("aria-expanded", "true")
+  })
 
-    it("supports keyboard activation in controlled usage", async () => {
-        const user = userEvent.setup()
+  it("supports keyboard activation in controlled usage", async () => {
+    const user = userEvent.setup()
 
-        const ControlledMenuToggle = () => {
-            const [open, setOpen] = React.useState(false)
+    const ControlledMenuToggle = () => {
+      const [open, setOpen] = React.useState(false)
 
-            return <MenuToggle controls="primary-navigation" onClick={() => setOpen((value) => !value)} open={open} />
-        }
+      return <MenuToggle controls="primary-navigation" onClick={() => setOpen((value) => !value)} open={open} />
+    }
 
-        render(<ControlledMenuToggle />)
+    render(<ControlledMenuToggle />)
 
-        await user.tab()
-        expect(screen.getByRole("button", { name: "Open navigation menu" })).toHaveFocus()
+    await user.tab()
+    expect(screen.getByRole("button", { name: "Open navigation menu" })).toHaveFocus()
 
-        await user.keyboard("{Enter}")
+    await user.keyboard("{Enter}")
 
-        expect(screen.getByRole("button", { name: "Close navigation menu" })).toHaveAttribute("aria-expanded", "true")
-    })
+    expect(screen.getByRole("button", { name: "Close navigation menu" })).toHaveAttribute("aria-expanded", "true")
+  })
 
-    it("uses a safe button type and forwards native attributes", () => {
-        render(<MenuToggle controls="primary-navigation" data-navigation="toggle" open={false} />)
+  it("uses a safe button type and forwards native attributes", () => {
+    render(<MenuToggle controls="primary-navigation" data-navigation="toggle" open={false} />)
 
-        const toggle = screen.getByRole("button", { name: "Open navigation menu" })
-        expect(toggle).toHaveAttribute("type", "button")
-        expect(toggle).toHaveAttribute("data-navigation", "toggle")
-    })
+    const toggle = screen.getByRole("button", { name: "Open navigation menu" })
+    expect(toggle).toHaveAttribute("type", "button")
+    expect(toggle).toHaveAttribute("data-navigation", "toggle")
+  })
 
-    it("does not handle activation when disabled", async () => {
-        const user = userEvent.setup()
-        const onClick = vi.fn()
+  it("does not handle activation when disabled", async () => {
+    const user = userEvent.setup()
+    const onClick = vi.fn()
 
-        render(<MenuToggle controls="primary-navigation" disabled onClick={onClick} open={false} />)
+    render(<MenuToggle controls="primary-navigation" disabled onClick={onClick} open={false} />)
 
-        const toggle = screen.getByRole("button", { name: "Open navigation menu" })
-        expect(toggle).toBeDisabled()
+    const toggle = screen.getByRole("button", { name: "Open navigation menu" })
+    expect(toggle).toBeDisabled()
 
-        await user.click(toggle)
+    await user.click(toggle)
 
-        expect(onClick).not.toHaveBeenCalled()
-    })
+    expect(onClick).not.toHaveBeenCalled()
+  })
 })
