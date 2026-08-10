@@ -1,4 +1,4 @@
-name: Run Type Check
+name: Check Formating
 on:
   pull_request:
     branches:
@@ -10,8 +10,8 @@ on:
 permissions:
   contents: read
 jobs:
-  typecheck:
-    name: Check types
+  formatting:
+    name: Check formating
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -22,5 +22,5 @@ jobs:
           cache: true
       - name: Install project dependencies
         run: pnpm install --frozen-lockfile
-      - name: Check types
-        run: pnpm run typecheck
+      - name: Check formating
+        run: pnpm run format:check
