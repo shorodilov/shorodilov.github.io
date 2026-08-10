@@ -56,6 +56,7 @@
     --sys-color-foreground-muted: #626262;
     --sys-color-border: #dedede;
     --sys-color-accent: var(--ref-color-green-300);
+    --sys-color-control-selected: var(--ref-color-white);
 
     /* Primary action colors */
     --sys-color-action-primary: var(--ref-color-green-200);
@@ -64,6 +65,22 @@
     --sys-color-action-primary-foreground: var(--ref-color-white);
     --sys-color-action-primary-disabled: var(--sys-color-surface-raised);
     --sys-color-action-primary-disabled-foreground: var(--sys-color-foreground-muted);
+
+    /* Secondary action colors */
+    --sys-color-action-secondary: var(--ref-color-green-400);
+    --sys-color-action-secondary-hover: var(--ref-color-green-500);
+    --sys-color-action-secondary-focus: var(--sys-color-action-secondary-hover);
+    --sys-color-action-secondary-foreground: var(--ref-color-white);
+    --sys-color-action-secondary-disabled: var(--sys-color-surface-raised);
+    --sys-color-action-secondary-disabled-foreground: var(--sys-color-foreground-muted);
+
+    /* Tertiary action colors */
+    --sys-color-action-tertiary: var(--sys-color-surface-raised);
+    --sys-color-action-tertiary-hover: var(--sys-color-border);
+    --sys-color-action-tertiary-focus: var(--sys-color-action-tertiary-hover);
+    --sys-color-action-tertiary-foreground: var(--sys-color-foreground);
+    --sys-color-action-tertiary-disabled: var(--sys-color-surface);
+    --sys-color-action-tertiary-disabled-foreground: var(--sys-color-foreground-muted);
     --sys-color-focus-ring: var(--ref-color-dark-100);
 }
 
@@ -81,8 +98,14 @@
     --sys-color-foreground-muted: #a3a3a3;
     --sys-color-border: var(--ref-color-dark-300);
     --sys-color-accent: var(--ref-color-green-100);
+    --sys-color-control-selected: var(--ref-color-dark-400);
     --sys-color-action-primary-disabled: #315626;
     --sys-color-action-primary-disabled-foreground: #737373;
+    --sys-color-action-secondary-disabled-foreground: #737373;
+    --sys-color-action-tertiary-hover: var(--sys-color-surface);
+    --sys-color-action-tertiary-focus: var(--sys-color-action-tertiary-hover);
+    --sys-color-action-tertiary-disabled: var(--sys-color-surface);
+    --sys-color-action-tertiary-disabled-foreground: #737373;
     --sys-color-focus-ring: var(--ref-color-white);
 }
 
@@ -100,12 +123,25 @@
     --color-foreground-muted: var(--sys-color-foreground-muted);
     --color-border: var(--sys-color-border);
     --color-accent: var(--sys-color-accent);
+    --color-control-selected: var(--sys-color-control-selected);
     --color-action-primary: var(--sys-color-action-primary);
     --color-action-primary-hover: var(--sys-color-action-primary-hover);
     --color-action-primary-focus: var(--sys-color-action-primary-focus);
     --color-action-primary-foreground: var(--sys-color-action-primary-foreground);
     --color-action-primary-disabled: var(--sys-color-action-primary-disabled);
     --color-action-primary-disabled-foreground: var(--sys-color-action-primary-disabled-foreground);
+    --color-action-secondary: var(--sys-color-action-secondary);
+    --color-action-secondary-hover: var(--sys-color-action-secondary-hover);
+    --color-action-secondary-focus: var(--sys-color-action-secondary-focus);
+    --color-action-secondary-foreground: var(--sys-color-action-secondary-foreground);
+    --color-action-secondary-disabled: var(--sys-color-action-secondary-disabled);
+    --color-action-secondary-disabled-foreground: var(--sys-color-action-secondary-disabled-foreground);
+    --color-action-tertiary: var(--sys-color-action-tertiary);
+    --color-action-tertiary-hover: var(--sys-color-action-tertiary-hover);
+    --color-action-tertiary-focus: var(--sys-color-action-tertiary-focus);
+    --color-action-tertiary-foreground: var(--sys-color-action-tertiary-foreground);
+    --color-action-tertiary-disabled: var(--sys-color-action-tertiary-disabled);
+    --color-action-tertiary-disabled-foreground: var(--sys-color-action-tertiary-disabled-foreground);
     --color-focus-ring: var(--sys-color-focus-ring);
 
     /* Width utilities also read spacing tokens, so keep suffixes distinct. */
