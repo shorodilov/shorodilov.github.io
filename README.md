@@ -23,16 +23,16 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/shorodilov/shorodilov.github.io.git cv-website
-   cd cv-website
-   ```
+    ```bash
+    git clone https://github.com/shorodilov/shorodilov.github.io.git cv-website
+    cd cv-website
+    ```
 
 2. **Install dependencies:**
 
-   ```bash
-   pnpm install
-   ```
+    ```bash
+    pnpm install
+    ```
 
 ## Project Structure
 

@@ -95,7 +95,7 @@ choices that make the portfolio harder to maintain.
 
 - `pnpm run typecheck` for TypeScript changes.
 - `pnpm run build` for production-build verification.
-- `pnpm exec prettier --check .` for formatting verification.
+- `pnpm run format:check` for formatting verification.
 
 Use `pnpm run build` as the general-purpose fallback when no more targeted
 verification command applies.
