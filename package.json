@@ -26,7 +26,9 @@
     "serve": "gatsby serve",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@fontsource-variable/cascadia-code": "^5.3.0",
