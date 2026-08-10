@@ -9,9 +9,11 @@ when workflow guidance changes.
 - `package.json` defines the package manager, scripts, and dependencies.
 - `pnpm-lock.yaml` locks dependency versions.
 - `tsconfig.json` defines the TypeScript compiler options and included files.
-- `prettier.config.ts` defines formatting, including quote and semicolon style.
+- `prettier.config.ts` and applicable `.editorconfig` settings define
+  formatting behavior.
 - `gatsby-config.ts` defines Gatsby metadata and plugins.
-- `postcss.config.ts` and `tailwind.config.ts` define the styling toolchain.
+- `postcss.config.ts` and `src/styles/global.css` define the styling
+  toolchain.
 - `.storybook/*.ts` defines Storybook.
 - `.github/workflows/*.yaml` defines CI and deployment behavior.
 
@@ -37,24 +39,28 @@ version compatible with it. CI is the authoritative reference environment.
 
 ```bash
 pnpm install --frozen-lockfile
-pnpm typecheck
-pnpm build
-pnpm storybook
-pnpm build-storybook
+pnpm run typecheck
+pnpm run build
+pnpm run format:check
+pnpm run storybook
+pnpm run build:storybook
 ```
 
-Only invoke scripts that currently exist in `package.json`. Do not document or
-assume lint, format, or test scripts until they are added there.
+Only invoke scripts that currently exist in `package.json`. Do not assume
+undeclared lint or test scripts.
 
 ## Working conventions
 
-- Run `pnpm typecheck` after changing TypeScript or TypeScript configuration.
-- Run `pnpm build` for changes that can affect Gatsby's production output.
-- Run `pnpm build-storybook` for Storybook configuration or component changes.
+- Run `pnpm run typecheck` after changing TypeScript or TypeScript
+  configuration.
+- Run `pnpm run build` for changes that can affect Gatsby's production output.
+- Run `pnpm run build:storybook` for Storybook configuration or component
+  changes.
+- Run `pnpm run format:check` after changing files handled by Prettier.
 - Run `pnpm install` after dependency changes and commit the resulting
   `pnpm-lock.yaml` update.
-- Follow `prettier.config.ts` for formatting rather than restating its options
-  here.
+- Follow `prettier.config.ts` and applicable `.editorconfig` settings for
+  formatting rather than restating their options here.
 - Keep reusable components in `src/components`, pages in `src/pages`, global
   styles in `src/styles`, and image assets in `src/images`.
 - Keep the site static; do not introduce a required server-side runtime.
