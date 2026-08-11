@@ -3,6 +3,6 @@ export interface Project {
   title: string
   cover: string
   tools: string[]
-  description: string[]
+  summary: string
   responsibilities: string[]
 }
