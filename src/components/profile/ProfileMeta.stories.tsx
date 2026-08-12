@@ -28,7 +28,7 @@ export const SingleLanguage: Story = {
 
 export const LongMetadata: Story = {
   args: {
-    languages: ["English", "Ukrainian", "Polish"],
+    languages: ["English", "Ukrainian"],
     location: "Kyiv, Ukraine",
   },
 }

@@ -49,6 +49,19 @@ describe("ProjectGrid", () => {
     })
   })
 
+  it("supports the responsive preview layout", () => {
+    render(<ProjectGrid data-testid="project-grid" layout="preview" projects={projects} />)
+
+    expect(screen.getByTestId("project-grid")).toHaveClass(
+      "grid-flow-col",
+      "auto-cols-[min(80vw,20rem)]",
+      "overflow-x-auto",
+      "md:grid-flow-row",
+      "md:grid-cols-2",
+      "md:overflow-visible",
+    )
+  })
+
   it("forwards native attributes and custom classes to the list", () => {
     render(
       <ProjectGrid aria-label="Selected projects" className="ring-1" data-testid="project-grid" projects={projects} />,
