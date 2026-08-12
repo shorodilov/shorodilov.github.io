@@ -1,10 +1,10 @@
 import * as React from "react"
 import { type Meta, type StoryObj } from "@storybook/react-webpack5"
-import { PageShell } from "./PageShell"
+import { PageLayout } from "./PageLayout"
 
 const content = (
   <div className="p-page-gutter">
-    <h1 className="m-0 type-heading-3">Portfolio page shell</h1>
+    <h1 className="m-0 type-heading-3">Portfolio page layout</h1>
     <p className="mt-3 mb-0 max-w-readable type-body text-foreground-muted">
       Page-specific layout and behavior can be composed inside the shared portfolio surface.
     </p>
@@ -12,8 +12,8 @@ const content = (
 )
 
 const meta = {
-  title: "Layout/PageShell",
-  component: PageShell,
+  title: "Layout/PageLayout",
+  component: PageLayout,
   tags: ["autodocs"],
   args: {
     children: content,
@@ -21,7 +21,7 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof PageShell>
+} satisfies Meta<typeof PageLayout>
 
 export default meta
 type Story = StoryObj<typeof meta>

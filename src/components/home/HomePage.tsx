@@ -2,7 +2,7 @@ import * as React from "react"
 import { profile } from "../../data/profile"
 import { tools } from "../../data/tool/tools"
 import { ActionLink } from "../actions/ActionLink"
-import { PageShell } from "../layout/PageShell"
+import { PageLayout } from "../layout/PageLayout"
 import { MenuToggle } from "../navigation/MenuToggle"
 import { ThemeToggle, type ColorTheme } from "../preferences/ThemeToggle"
 import { ProfileActions } from "../profile/ProfileActions"
@@ -55,7 +55,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
   const [theme, setTheme] = React.useState<ColorTheme>("dark")
 
   return (
-    <PageShell
+    <PageLayout
       className="relative flex min-h-dvh flex-col md:grid md:h-dvh md:grid-cols-[27.5rem_minmax(0,1fr)] md:grid-rows-[5.75rem_minmax(0,1fr)]"
       data-testid="home-page"
       data-theme={theme}
@@ -165,6 +165,6 @@ export const HomePage = ({ projects }: HomePageProps) => {
       </main>
 
       {menuOpen && <MobileNavigation onClose={() => setMenuOpen(false)} onThemeChange={setTheme} theme={theme} />}
-    </PageShell>
+    </PageLayout>
   )
 }
