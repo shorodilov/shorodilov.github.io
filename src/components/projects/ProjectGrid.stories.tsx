@@ -39,6 +39,12 @@ const meta = {
     "aria-label": "Projects",
     projects,
   },
+  argTypes: {
+    layout: {
+      control: "radio",
+      options: ["grid", "preview"],
+    },
+  },
   parameters: {
     layout: "padded",
   },
@@ -53,6 +59,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+
+export const Preview: Story = {
+  args: {
+    layout: "preview",
+  },
+}
 
 export const SingleProject: Story = {
   args: {
