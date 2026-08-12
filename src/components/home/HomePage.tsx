@@ -116,7 +116,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
           >
             Tools
           </SectionHeader>
-          <div className="-mr-5 mt-5 overflow-x-auto pr-5 md:mr-0 md:overflow-visible md:pr-0">
+          <div className="mt-5 -mr-5 overflow-x-auto pr-5 md:mr-0 md:overflow-visible md:pr-0">
             <ToolGrid aria-label="Selected tools" className="w-max md:w-auto" tools={tools} />
           </div>
         </section>
@@ -138,11 +138,11 @@ export const HomePage = ({ projects }: HomePageProps) => {
               I am a Software Engineer with more than 10 years of overall experience in the field of IT technology.
             </p>
             <p className="m-0">
-              I have experience in design of spatial data storage for the production needs. Custom extensions development
-              for the GIS software. Spatial related web-applications design, development, and deployment. Unique expertise
-              on developing software tools for geospatial data manipulation. Hands-on experience with design and
-              development of services for the geodata aggregation and modification processes. 9+ years&apos; experience in
-              GIS projects.
+              I have experience in design of spatial data storage for the production needs. Custom extensions
+              development for the GIS software. Spatial related web-applications design, development, and deployment.
+              Unique expertise on developing software tools for geospatial data manipulation. Hands-on experience with
+              design and development of services for the geodata aggregation and modification processes. 9+ years&apos;
+              experience in GIS projects.
             </p>
             <p className="m-0">
               Strong knowledge in Python and spatial databases. Experience with different versions of Python as well as
@@ -165,7 +165,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
           </SectionHeader>
           <ProjectGrid
             aria-label="Selected projects"
-            className="-mr-5 mt-5 pr-5 md:mr-0 md:pr-0"
+            className="mt-5 -mr-5 pr-5 md:mr-0 md:pr-0"
             layout="preview"
             projects={projects}
           />
