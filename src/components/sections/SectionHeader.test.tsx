@@ -32,6 +32,12 @@ describe("SectionHeader", () => {
     expect(screen.getByRole("link", { name: "View all" })).toHaveAttribute("href", "/projects")
   })
 
+  it("supports a muted heading tone", () => {
+    render(<SectionHeader tone="muted">Project information</SectionHeader>)
+
+    expect(screen.getByRole("heading", { level: 2, name: "Project information" })).toHaveClass("text-foreground-muted")
+  })
+
   it("preserves native header attributes", () => {
     render(
       <SectionHeader aria-label="Tools section controls" data-section="tools">

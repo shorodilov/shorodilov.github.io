@@ -2,7 +2,8 @@ import * as React from "react"
 import { profile } from "../../data/profile"
 import { tools } from "../../data/tool/tools"
 import { ActionLink } from "../actions/ActionLink"
-import { PageShell } from "../layout/PageShell"
+import { PageFooter } from "../layout/PageFooter"
+import { PageLayout } from "../layout/PageLayout"
 import { MenuToggle } from "../navigation/MenuToggle"
 import { ThemeToggle, type ColorTheme } from "../preferences/ThemeToggle"
 import { ProfileActions } from "../profile/ProfileActions"
@@ -55,7 +56,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
   const [theme, setTheme] = React.useState<ColorTheme>("dark")
 
   return (
-    <PageShell
+    <PageLayout
       className="relative flex min-h-dvh flex-col md:grid md:h-dvh md:grid-cols-[27.5rem_minmax(0,1fr)] md:grid-rows-[5.75rem_minmax(0,1fr)]"
       data-testid="home-page"
       data-theme={theme}
@@ -113,9 +114,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
           </div>
         </section>
 
-        <footer className="order-5 mt-20 pb-6 text-center type-caption text-foreground-muted md:mt-auto md:pb-5">
-          © 2024 Copyright
-        </footer>
+        <PageFooter className="order-5 mt-20 pb-6 md:mt-auto md:pb-5" />
       </div>
 
       <main className="order-4 px-5 pt-8 md:col-start-2 md:row-start-2 md:min-h-0 md:overflow-y-auto md:px-[3.75rem] md:pt-8 md:pb-12">
@@ -165,6 +164,6 @@ export const HomePage = ({ projects }: HomePageProps) => {
       </main>
 
       {menuOpen && <MobileNavigation onClose={() => setMenuOpen(false)} onThemeChange={setTheme} theme={theme} />}
-    </PageShell>
+    </PageLayout>
   )
 }
