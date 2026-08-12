@@ -2,6 +2,7 @@ import * as React from "react"
 import { profile } from "../../data/profile"
 import { tools } from "../../data/tool/tools"
 import { ActionLink } from "../actions/ActionLink"
+import { PageFooter } from "../layout/PageFooter"
 import { PageLayout } from "../layout/PageLayout"
 import { MenuToggle } from "../navigation/MenuToggle"
 import { ThemeToggle, type ColorTheme } from "../preferences/ThemeToggle"
@@ -113,9 +114,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
           </div>
         </section>
 
-        <footer className="order-5 mt-20 pb-6 text-center type-caption text-foreground-muted md:mt-auto md:pb-5">
-          © 2024 Copyright
-        </footer>
+        <PageFooter className="order-5 mt-20 pb-6 md:mt-auto md:pb-5" />
       </div>
 
       <main className="order-4 px-5 pt-8 md:col-start-2 md:row-start-2 md:min-h-0 md:overflow-y-auto md:px-[3.75rem] md:pt-8 md:pb-12">
