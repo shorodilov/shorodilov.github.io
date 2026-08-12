@@ -1,7 +1,7 @@
 import * as React from "react"
 import clsx from "clsx"
 
-export interface PageHeaderProps extends React.HTMLAttributes<HTMLElement> {
+export interface PageHeaderProps extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
   leading?: React.ReactNode
   title?: React.ReactNode
   trailing?: React.ReactNode
