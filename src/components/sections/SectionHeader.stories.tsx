@@ -32,6 +32,13 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
 
+export const Muted: Story = {
+  args: {
+    children: "Project information",
+    tone: "muted",
+  },
+}
+
 export const WithAction: Story = {
   args: {
     action: (
