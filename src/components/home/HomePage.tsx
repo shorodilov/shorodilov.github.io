@@ -30,10 +30,7 @@ const profileActions = {
 }
 
 const MobileNavigation = ({ onClose, onThemeChange, theme }: MobileNavigationProps) => (
-  <div
-    className="absolute inset-0 z-20 flex flex-col bg-background px-5 pt-5 pb-10 md:hidden"
-    id="mobile-navigation"
-  >
+  <div className="absolute inset-0 z-20 flex flex-col bg-background px-5 pt-5 pb-10 md:hidden" id="mobile-navigation">
     <div className="flex items-start justify-between">
       <ThemeToggle onThemeChange={onThemeChange} theme={theme} />
       <MenuToggle controls="mobile-navigation" onClick={onClose} open />
@@ -95,12 +92,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
             size="large"
             src={profile.avatar}
           />
-          <ProfileIdentity
-            className="mt-5"
-            name={profile.name}
-            role={profile.role}
-            summary={profile.summary}
-          />
+          <ProfileIdentity className="mt-5" name={profile.name} role={profile.role} summary={profile.summary} />
           <ProfileMeta className="mt-4" languages={profile.languages} location={profile.location} />
           <ProfileActions className="mt-8 w-full" {...profileActions} />
         </section>
