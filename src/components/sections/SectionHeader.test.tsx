@@ -38,6 +38,14 @@ describe("SectionHeader", () => {
     expect(screen.getByRole("heading", { level: 2, name: "Project information" })).toHaveClass("text-foreground-muted")
   })
 
+  it("supports a compact heading size", () => {
+    render(<SectionHeader size="compact">Project information</SectionHeader>)
+
+    const heading = screen.getByRole("heading", { level: 2, name: "Project information" })
+    expect(heading).toHaveClass("type-heading-4-caps")
+    expect(heading).not.toHaveClass("md:type-heading-2-caps")
+  })
+
   it("preserves native header attributes", () => {
     render(
       <SectionHeader aria-label="Tools section controls" data-section="tools">
