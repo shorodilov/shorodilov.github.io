@@ -3,7 +3,7 @@ import type { GatsbyNode } from "gatsby"
 import { createRemoteFileNode } from "gatsby-source-filesystem"
 
 const ABOUT_SOURCE_URL = "https://raw.githubusercontent.com/shorodilov/shorodilov/main/README.md"
-const ABOUT_TEMPLATE = path.resolve("./src/templates/about.jsx")
+const ABOUT_TEMPLATE = path.resolve("./src/templates/about.tsx")
 
 interface AboutContentQueryData {
   file: {
