@@ -37,17 +37,26 @@ describe("ProjectDetailPage", () => {
   })
 
   it("renders resolved tools in source order", () => {
-    render(<ProjectDetailPage project={project} tools={tools}>Project body</ProjectDetailPage>)
+    render(
+      <ProjectDetailPage project={project} tools={tools}>
+        Project body
+      </ProjectDetailPage>,
+    )
 
     const toolList = screen.getByRole("list", { name: "Project tools" })
-    expect(within(toolList).getAllByRole("img").map((image) => image.getAttribute("alt"))).toEqual([
-      "Python",
-      "Django",
-    ])
+    expect(
+      within(toolList)
+        .getAllByRole("img")
+        .map((image) => image.getAttribute("alt")),
+    ).toEqual(["Python", "Django"])
   })
 
   it("renders every project responsibility", () => {
-    render(<ProjectDetailPage project={project} tools={tools}>Project body</ProjectDetailPage>)
+    render(
+      <ProjectDetailPage project={project} tools={tools}>
+        Project body
+      </ProjectDetailPage>,
+    )
 
     const responsibilities = screen.getByRole("list", { name: "Project responsibilities" })
     project.responsibilities.forEach((responsibility) => {
@@ -57,7 +66,11 @@ describe("ProjectDetailPage", () => {
 
   it("keeps theme selection local to the project page shell", async () => {
     const user = userEvent.setup()
-    render(<ProjectDetailPage project={project} tools={tools}>Project body</ProjectDetailPage>)
+    render(
+      <ProjectDetailPage project={project} tools={tools}>
+        Project body
+      </ProjectDetailPage>,
+    )
 
     const page = screen.getByTestId("project-detail-page")
     expect(page).toHaveAttribute("data-theme", "dark")

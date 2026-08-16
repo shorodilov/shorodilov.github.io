@@ -27,7 +27,7 @@ export const ProjectDetailPage = ({ children, project, tools }: ProjectDetailPag
       />
 
       <main className="flex-1 md:grid md:grid-cols-[minmax(18rem,34%)_1px_minmax(0,1fr)] md:gap-x-10 md:px-page-gutter md:pt-[3.75rem] md:pb-section">
-        <h1 className="sr-only md:col-start-3 md:row-start-1 md:m-0 md:not-sr-only md:type-heading-3">
+        <h1 className="sr-only md:not-sr-only md:col-start-3 md:row-start-1 md:m-0 md:type-heading-3">
           {project.title}
         </h1>
 
