@@ -4,19 +4,21 @@ import { HomePage } from "../components/home/HomePage"
 import { type ProjectGridItem } from "../components/projects/ProjectGrid"
 
 interface HomePageQueryData {
-  allMdx: {
+  allFile: {
     nodes: Array<{
-      frontmatter: {
-        cover: string
-        slug: string
-        title: string
+      childMdx: {
+        frontmatter: {
+          cover: string
+          slug: string
+          title: string
+        }
       }
     }>
   }
 }
 
 const IndexPage = ({ data }: PageProps<HomePageQueryData>) => {
-  const projects: ProjectGridItem[] = data.allMdx.nodes.map(({ frontmatter }) => ({
+  const projects: ProjectGridItem[] = data.allFile.nodes.map(({ childMdx: { frontmatter } }) => ({
     cover: frontmatter.cover,
     href: `/projects/${frontmatter.slug}`,
     slug: frontmatter.slug,
@@ -30,12 +32,14 @@ export default IndexPage
 
 export const query = graphql`
   query HomePageProjects {
-    allMdx {
+    allFile(filter: { sourceInstanceName: { eq: "projects" }, extension: { eq: "mdx" } }) {
       nodes {
-        frontmatter {
-          cover
-          slug
-          title
+        childMdx {
+          frontmatter {
+            cover
+            slug
+            title
+          }
         }
       }
     }

@@ -2,6 +2,7 @@ import * as React from "react"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, expect, it } from "vitest"
+import { profile } from "../../data/profile"
 import { type ProjectGridItem } from "../projects/ProjectGrid"
 import { HomePage } from "./HomePage"
 
@@ -32,8 +33,11 @@ describe("HomePage", () => {
       expect(screen.getByRole("link", { name: project.title })).toHaveAttribute("href", project.href)
     })
 
+    const aboutSection = screen.getByRole("heading", { name: "About" }).closest("section")
+    expect(aboutSection).toHaveTextContent(profile.summary)
+
     const viewAllLinks = screen.getAllByRole("link", { name: "View all" })
-    expect(viewAllLinks.map((link) => link.getAttribute("href"))).toEqual(["/tools", "/projects"])
+    expect(viewAllLinks.map((link) => link.getAttribute("href"))).toEqual(["/tools", "/about", "/projects"])
   })
 
   it("opens and closes the mobile navigation presentation", async () => {

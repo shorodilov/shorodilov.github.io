@@ -123,24 +123,17 @@ export const HomePage = ({ projects }: HomePageProps) => {
         </h1>
 
         <section aria-labelledby="about-heading" className="hidden md:block">
-          <SectionHeader headingId="about-heading">About</SectionHeader>
-          <div className="mt-5 space-y-2.5 type-body text-foreground">
-            <p className="m-0">
-              I am a Software Engineer with more than 10 years of overall experience in the field of IT technology.
-            </p>
-            <p className="m-0">
-              I have experience in design of spatial data storage for the production needs. Custom extensions
-              development for the GIS software. Spatial related web-applications design, development, and deployment.
-              Unique expertise on developing software tools for geospatial data manipulation. Hands-on experience with
-              design and development of services for the geodata aggregation and modification processes. 9+ years&apos;
-              experience in GIS projects.
-            </p>
-            <p className="m-0">
-              Strong knowledge in Python and spatial databases. Experience with different versions of Python as well as
-              their features. Skilled in web-scraping and data manipulation. Strong technical and communication skills.
-              Great at working in high-pressure situations. Good problem-solving skills.
-            </p>
-          </div>
+          <SectionHeader
+            action={
+              <ActionLink href="/about" variant="compact">
+                View all
+              </ActionLink>
+            }
+            headingId="about-heading"
+          >
+            About
+          </SectionHeader>
+          <p className="mt-5 mb-0 type-body text-foreground">{profile.summary}</p>
         </section>
 
         <section aria-labelledby="works-heading" className="mt-8 md:mt-16">
