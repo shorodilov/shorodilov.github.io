@@ -46,4 +46,9 @@ export const query = graphql`
   }
 `
 
-export const Head: HeadFC = () => <title>Serhii Horodilov — Software Engineer</title>
+export const Head: HeadFC = () => (
+  <>
+    <html data-theme="dark" />
+    <title>Serhii Horodilov — Software Engineer</title>
+  </>
+)

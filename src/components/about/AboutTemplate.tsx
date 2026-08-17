@@ -8,4 +8,9 @@ type AboutTemplateProps = Omit<PageProps, "children"> & {
 
 export const AboutTemplate = ({ children }: AboutTemplateProps) => <AboutPage>{children}</AboutPage>
 
-export const AboutHead: HeadFC = () => <title>About — Serhii Horodilov</title>
+export const AboutHead: HeadFC = () => (
+  <>
+    <html data-theme="dark" />
+    <title>About — Serhii Horodilov</title>
+  </>
+)

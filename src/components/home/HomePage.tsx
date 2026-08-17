@@ -6,6 +6,7 @@ import { PageFooter } from "../layout/PageFooter"
 import { PageLayout } from "../layout/PageLayout"
 import { MenuToggle } from "../navigation/MenuToggle"
 import { ThemeToggle, type ColorTheme } from "../preferences/ThemeToggle"
+import { useDocumentTheme } from "../preferences/useDocumentTheme"
 import { ProfileActions } from "../profile/ProfileActions"
 import { ProfileAvatar } from "../profile/ProfileAvatar"
 import { ProfileIdentity } from "../profile/ProfileIdentity"
@@ -55,11 +56,12 @@ export const HomePage = ({ projects }: HomePageProps) => {
   const [menuOpen, setMenuOpen] = React.useState(false)
   const [theme, setTheme] = React.useState<ColorTheme>("dark")
 
+  useDocumentTheme(theme)
+
   return (
     <PageLayout
       className="relative flex min-h-dvh flex-col md:grid md:h-dvh md:grid-cols-[27.5rem_minmax(0,1fr)] md:grid-rows-[5.75rem_minmax(0,1fr)]"
       data-testid="home-page"
-      data-theme={theme}
     >
       <header className="order-1 flex h-20 items-start justify-between px-5 pt-5 md:col-start-2 md:row-start-1 md:h-auto md:items-center md:border-b md:border-border md:px-[3.75rem] md:pt-0">
         <div className="md:hidden">
