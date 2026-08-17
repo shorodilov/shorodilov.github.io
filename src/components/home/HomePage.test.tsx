@@ -58,15 +58,14 @@ describe("HomePage", () => {
     expect(screen.queryByRole("navigation", { name: "Primary navigation" })).not.toBeInTheDocument()
   })
 
-  it("keeps theme selection local to the homepage shell", async () => {
+  it("applies theme selection to the document root", async () => {
     const user = userEvent.setup()
     render(<HomePage projects={projects} />)
 
-    const page = screen.getByTestId("home-page")
-    expect(page).toHaveAttribute("data-theme", "dark")
+    expect(document.documentElement).toHaveAttribute("data-theme", "dark")
 
     await user.click(screen.getAllByRole("radio", { name: "Light" })[0])
 
-    expect(page).toHaveAttribute("data-theme", "light")
+    expect(document.documentElement).toHaveAttribute("data-theme", "light")
   })
 })

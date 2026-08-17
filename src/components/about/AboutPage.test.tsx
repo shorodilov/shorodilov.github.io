@@ -23,6 +23,7 @@ describe("AboutPage", () => {
     expect(screen.getByRole("link", { name: "Back to homepage" })).toHaveAttribute("href", "/")
     expect(screen.getByRole("main")).toHaveTextContent("Canonical About content")
     expect(screen.getByRole("contentinfo")).toBeInTheDocument()
+    expect(document.documentElement).toHaveAttribute("data-theme", "dark")
   })
 
   it("keeps the GitHub profile heading out of the page body", () => {
