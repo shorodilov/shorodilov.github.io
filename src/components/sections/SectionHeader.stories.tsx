@@ -39,6 +39,14 @@ export const Muted: Story = {
   },
 }
 
+export const Compact: Story = {
+  args: {
+    children: "Project information",
+    size: "compact",
+    tone: "muted",
+  },
+}
+
 export const WithAction: Story = {
   args: {
     action: (

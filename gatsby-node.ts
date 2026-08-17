@@ -4,6 +4,7 @@ import { createRemoteFileNode } from "gatsby-source-filesystem"
 
 const ABOUT_SOURCE_URL = "https://raw.githubusercontent.com/shorodilov/shorodilov/main/README.md"
 const ABOUT_TEMPLATE = path.resolve("./src/templates/about.tsx")
+const PROJECT_TEMPLATE = path.resolve("./src/templates/project.tsx")
 
 interface AboutContentQueryData {
   file: {
@@ -13,6 +14,22 @@ interface AboutContentQueryData {
       }
     } | null
   } | null
+}
+
+interface ProjectContentQueryData {
+  allFile: {
+    nodes: Array<{
+      childMdx: {
+        id: string
+        frontmatter: {
+          slug: string
+        }
+        internal: {
+          contentFilePath: string
+        }
+      } | null
+    }>
+  }
 }
 
 export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions: { createNode }, createNodeId, getCache }) => {
@@ -31,7 +48,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions: { create
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ actions: { createPage }, graphql }) => {
-  const result = await graphql<AboutContentQueryData>(`
+  const aboutResult = await graphql<AboutContentQueryData>(`
     query AboutContent {
       file(name: { eq: "about" }, extension: { eq: "md" }, sourceInstanceName: { eq: "__PROGRAMMATIC__" }) {
         childMdx {
@@ -43,11 +60,11 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions: { create
     }
   `)
 
-  if (result.errors) {
-    throw new Error("Failed to query canonical About content", { cause: result.errors })
+  if (aboutResult.errors) {
+    throw new Error("Failed to query canonical About content", { cause: aboutResult.errors })
   }
 
-  const aboutContent = result.data?.file?.childMdx
+  const aboutContent = aboutResult.data?.file?.childMdx
 
   if (!aboutContent) {
     throw new Error("Canonical About content was not transformed to MDX")
@@ -56,5 +73,47 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions: { create
   createPage({
     path: "/about",
     component: `${ABOUT_TEMPLATE}?__contentFilePath=${aboutContent.internal.contentFilePath}`,
+  })
+
+  const projectsResult = await graphql<ProjectContentQueryData>(`
+    query ProjectContent {
+      allFile(filter: { sourceInstanceName: { eq: "projects" }, extension: { eq: "mdx" } }) {
+        nodes {
+          childMdx {
+            id
+            frontmatter {
+              slug
+            }
+            internal {
+              contentFilePath
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  if (projectsResult.errors) {
+    throw new Error("Failed to query project content", { cause: projectsResult.errors })
+  }
+
+  const projectFiles = projectsResult.data?.allFile.nodes
+
+  if (!projectFiles) {
+    throw new Error("Project content query returned no data")
+  }
+
+  projectFiles.forEach(({ childMdx }) => {
+    if (!childMdx) {
+      throw new Error("Project content was not transformed to MDX")
+    }
+
+    createPage({
+      path: `/projects/${childMdx.frontmatter.slug}`,
+      component: `${PROJECT_TEMPLATE}?__contentFilePath=${childMdx.internal.contentFilePath}`,
+      context: {
+        id: childMdx.id,
+      },
+    })
   })
 }
