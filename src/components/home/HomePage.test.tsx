@@ -27,7 +27,7 @@ describe("HomePage", () => {
 
     expect(screen.getByText("Serhii Horodilov")).toBeInTheDocument()
     expect(screen.getByRole("list", { name: "Selected tools" })).toBeInTheDocument()
-    expect(screen.getByRole("contentinfo")).toHaveTextContent("© 2024 Copyright")
+    expect(screen.getByRole("contentinfo")).toHaveTextContent(`© ${new Date().getFullYear()} Copyright`)
 
     projects.forEach((project) => {
       expect(screen.getByRole("link", { name: project.title })).toHaveAttribute("href", project.href)
