@@ -1,0 +1,42 @@
+---
+slug: geospatial-etl-toolkit
+title: Geospatial ETL and Normalization Toolkit
+cover: https://picsum.photos/seed/geospatial-etl-toolkit/1200/675
+tools:
+    - python
+    - psycopg2
+    - shapely
+    - gdal
+    - postgresql
+    - postgis
+    - ncurses
+summary: >-
+    A reusable Python toolkit that normalized heterogeneous vendor geodata and
+    exported it to files or PostgreSQL/PostGIS.
+---
+
+Between 2012 and 2015, I worked on a sequence of related ETL tasks for spatial
+data received from different vendors. Inputs included Shapefile, GeoJSON, GPX,
+and GPS tracks, with vendor-specific differences in both structure and content.
+
+The work started as separate converters for individual vendor and format
+combinations. I later consolidated the code into a reusable Python library with
+facade-style interfaces and added a curses-based CLI. The toolkit could export
+to Shapefile or GeoJSON and could import data directly into PostgreSQL/PostGIS
+through database connectors.
+
+Normalization went beyond format conversion. The pipeline removed irrelevant
+vendor fields, checked UTM/CRS information, reprojected data to a requested CRS
+with WGS84 as the default, and validated geometry. It also normalized line data
+for a target system that required clean segments without invalid intersections
+or overlaps.
+
+The implementation used libraries including psycopg2, Shapely, and GDAL.
+
+## Responsibilities
+
+- Developed vendor- and format-specific geospatial converters.
+- Consolidated converters into a reusable normalization library.
+- Designed facade-style APIs and a curses-based CLI.
+- Implemented PostgreSQL/PostGIS connectors and import workflows.
+- Added data cleanup, CRS validation/reprojection, and geometry validation.

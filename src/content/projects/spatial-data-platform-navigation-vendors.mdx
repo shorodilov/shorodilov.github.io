@@ -4,27 +4,76 @@ title: Spatial Data Platform for Navigation Vendors
 cover: https://picsum.photos/seed/spatial-data-platform/1200/675
 tools:
     - python
+    - falcon
+    - django
+    - celery
+    - rabbitmq
     - cplusplus
     - pandas
     - bigquery
     - postgresql
     - postgis
+    - sqlite
+    - spatialite
+    - mongodb
     - google-cloud
+    - google-maps
+    - azure
+    - onedrive
+    - dropbox
+    - rest
 summary: >-
-    A service platform for collecting, analyzing, and packaging spatial data for
-    navigation vendors in the EU and USA.
+    A distributed platform that coordinated customer orders, routing, field data
+    collection, validation, and delivery for navigation vendors.
 ---
 
-A platform composed of services for collecting, analyzing, and packaging
-spatial data for navigation vendors in the EU and USA.
+From 2015 to 2019, I worked on a large platform that grew naturally from several
+smaller spatial-data projects. Multiple navigation customers had different
+delivery requirements, but the operational flow was similar: customers supplied
+points of interest, routes were prepared with Google mapping and distance
+services, field teams collected the required data, and the results were
+normalized into customer-specific delivery packages.
 
-Work focused primarily on core libraries that performed low-level data
-manipulation and exposed higher-level interfaces to other platform components,
-alongside GPS data parsing and POI density analysis.
+The platform was built as a distributed set of services running primarily on
+GCP. It provided order placement and tracking, field-team management, background
+route preparation, segmentation of routes to fit working-time limits, field-data
+ingestion, customer-specific serialization, delivery packaging, and a large
+notification system serving customers, managers, field teams, and administrators.
+
+## Core service
+
+I worked primarily on the Python/Falcon core service, which orchestrated data
+flow between other services. Celery and RabbitMQ handled asynchronous task
+distribution and durable transport of field data. Services authenticated to the
+core with API keys.
+
+I also developed a reusable Python SDK for other backend teams. It serialized
+data into the format expected by the core service and exposed higher-level HTTP
+methods for operations such as passing work to another service or requesting
+validation.
+
+The platform used PostgreSQL/PostGIS for spatial and operational data including
+customer POIs, planned routes, and field results. SQLite/SpatiaLite provided
+local storage on field devices, while MongoDB held mostly administrative data
+such as orders and invoices.
+
+Field laptops prepared pending data in chunks and submitted it through a REST
+service that forwarded work to RabbitMQ. The client kept retrying while data was
+pending and connectivity was available; local records were marked as processed
+after server acknowledgement. The core service applied customer-independent
+validation such as photo-metadata checks and GPS-track continuity checks.
+
+The wider platform also integrated with OneDrive in the Microsoft/Azure
+ecosystem and Dropbox. I periodically contributed to a Django administration
+service and participated in requirements gathering and architecture planning for
+both the platform and the core service.
 
 ## Responsibilities
 
-- Develop core platform functionality and shared libraries.
-- Design factory methods for parsing data from multiple GPS manufacturers.
-- Develop tooling for POI density analysis used in future route calculation.
-- Set up an event-driven messaging system.
+- Developed and evolved the platform core service.
+- Implemented orchestration and data exchange between distributed services.
+- Developed the internal Python SDK for other backend developers.
+- Worked with Celery/RabbitMQ asynchronous processing and field-data transport.
+- Contributed to the Django administration service when required.
+- Participated in platform requirements gathering and architecture planning.
+- Supported validation, routing, delivery, and operational workflows.

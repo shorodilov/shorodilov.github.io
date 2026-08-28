@@ -1,0 +1,47 @@
+---
+slug: agricultural-data-management-platform
+title: Agricultural Data Management Platform
+cover: https://picsum.photos/seed/agricultural-data-platform/1200/675
+tools:
+    - python
+    - flask
+    - psycopg2
+    - sqlalchemy
+    - alembic
+    - gdal
+    - geos
+    - postgresql
+    - postgis
+    - celery
+    - redis
+    - leaflet
+    - websockets
+    - jwt
+summary: >-
+    A centralized web GIS platform that moved agricultural workflows from local
+    QGIS files to PostgreSQL/PostGIS and a Leaflet-based interface.
+---
+
+In 2016, an agricultural customer moved from multiple QGIS workstations and
+local Shapefile/GeoJSON workflows to a centralized web service. Existing
+analytical functionality from the earlier QGIS plugins was migrated into the
+new platform, while PostgreSQL/PostGIS became the central spatial data store.
+
+The web application exposed an interactive Leaflet map and retained the spatial
+clustering, heatmap, and reporting capabilities developed for the desktop
+workflow. Heavy spatial operations ran as background jobs through Celery and
+Redis, while WebSockets pushed notifications and job-status updates to the
+frontend in real time. Authentication used JWT.
+
+I worked primarily on the backend using Flask, psycopg2, SQLAlchemy, Alembic,
+GDAL, and GEOS, while also preparing and configuring the geospatial parts of the
+frontend.
+
+## Responsibilities
+
+- Developed the Flask backend and centralized spatial-data workflows.
+- Worked with PostgreSQL/PostGIS through psycopg2 and SQLAlchemy.
+- Managed schema evolution with Alembic.
+- Implemented background spatial processing with Celery and Redis.
+- Integrated WebSocket updates for real-time status and notifications.
+- Configured the Leaflet-based geospatial frontend functionality.

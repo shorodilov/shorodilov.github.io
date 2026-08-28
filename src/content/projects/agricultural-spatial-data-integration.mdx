@@ -1,0 +1,38 @@
+---
+slug: agricultural-spatial-data-integration
+title: Agricultural Spatial Data Integration
+cover: https://picsum.photos/seed/agricultural-spatial-integration/1200/675
+tools:
+    - python
+    - psycopg2
+    - sqlalchemy
+    - postgresql
+    - postgis
+    - google-cloud
+    - google-drive
+    - qgis
+summary: >-
+    A field-data integration service that digitized agricultural reporting by
+    moving GPS-referenced GeoJSON from Google Drive into PostGIS on GCP.
+---
+
+In 2015, I worked on a customer project that replaced paper maps and field
+reporting with a digital spatial-data flow. Agronomists used Android tablets in
+the field, selected one of several data-entry forms, and recorded observations
+for GPS-referenced points.
+
+The tablet application stored submissions as GeoJSON and uploaded them to
+Google Drive using its native synchronization capability. Cloud-side Python
+logic processed new files automatically, or manually on demand, and imported
+the resulting records into PostgreSQL/PostGIS hosted on GCP. Office users could
+then connect with QGIS or similar GIS software for analysis.
+
+The server-side implementation used Python, psycopg2, and SQLAlchemy.
+
+## Responsibilities
+
+- Designed the spatial PostgreSQL/PostGIS schema.
+- Configured database users and access permissions.
+- Developed the GCP-side GeoJSON processing and import logic.
+- Supported automatic processing when new files appeared in Google Drive.
+- Provided an on-demand processing path for manual operation.

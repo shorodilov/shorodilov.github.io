@@ -1,0 +1,36 @@
+---
+slug: healthcare-api-customer-integrations
+title: Healthcare API and Customer Integrations
+cover: https://picsum.photos/seed/healthcare-customer-integrations/1200/675
+tools:
+    - python
+    - fastapi
+    - elasticsearch
+    - google-drive
+    - salesforce
+    - rest
+summary: >-
+    A FastAPI data service that ingested healthcare customer data from Google
+    Drive, indexed it in Elasticsearch, and served a Symfony web application.
+---
+
+In 2022, I worked on a healthcare SaaS composed of a FastAPI data service and a
+PHP/Symfony web application. The two services communicated through REST APIs.
+
+Healthcare users uploaded source data to Google Drive. The data service retrieved
+those files, processed the content, stored or indexed prepared data in
+Elasticsearch, and exposed it back to Symfony for presentation in the web
+interface. The exact source-data formats and domain content are intentionally
+omitted because of NDA constraints.
+
+The project also included Salesforce integration and customer onboarding/data
+integration work. I no longer remember the Salesforce workflow well enough to
+describe its internal details reliably.
+
+## Responsibilities
+
+- Developed FastAPI endpoints consumed by the Symfony application.
+- Implemented Google Drive data-ingestion and ETL workflows.
+- Prepared and indexed processed data in Elasticsearch.
+- Exposed prepared data through REST APIs for the web application.
+- Contributed to Salesforce and other customer-integration workflows.

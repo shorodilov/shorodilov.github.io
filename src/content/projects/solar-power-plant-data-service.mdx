@@ -1,0 +1,81 @@
+---
+slug: solar-power-plant-data-service
+title: Data Service for Solar Power Plant Planning
+cover: https://picsum.photos/seed/solar-power-data-service/1200/675
+tools:
+    - python
+    - fastapi
+    - sqlalchemy
+    - alembic
+    - postgresql
+    - aws
+    - amazon-ec2
+    - amazon-rds
+    - amazon-s3
+    - terraform
+    - cloud-init
+    - systemd
+    - bitbucket-pipelines
+    - black
+    - pylint
+    - mypy
+    - pre-commit
+    - jwt
+summary: >-
+    The central FastAPI data service for a solar-power planning platform,
+    combining equipment data, weather integrations, simulations, and AWS delivery.
+---
+
+From 2024 to 2026, I was responsible for the Data Service in a solar-power plant
+planning platform composed of a Web UI, Data Service, and Calculation Service.
+The Data Service acted as the central data and integration layer between the UI,
+external meteorological providers, and the simulation engine.
+
+It stored an equipment catalogue with technical characteristics and persisted
+user-created plant configurations containing installation locations and desired
+station parameters. For a configuration, the service retrieved meteorological
+data for the selected area and prepared an input package for the Calculation
+Service. That service ran dozens or hundreds of simulations to find suitable
+equipment combinations, then returned results to the Data Service for storage
+and later review.
+
+## Backend ownership
+
+I owned the Data Service and personally reviewed all pull requests related to it.
+The backend used FastAPI, SQLAlchemy, PostgreSQL, and Alembic. I implemented JWT
+authentication with MFA, role- and permission-based authorization, equipment and
+configuration CRUD APIs, and ownership rules such as restricting users to
+editing or deleting their own configurations. Equipment management was limited
+to appropriate roles.
+
+I also implemented simulation lifecycle email notifications and integrations
+with meteorological-data providers.
+
+## Infrastructure and delivery
+
+I performed project-wide DevOps work on AWS. Terraform provisioned EC2, S3, and
+RDS/PostgreSQL resources and generated cloud-init configuration for EC2
+instances. cloud-init prepared hosts, cloned application repositories using
+provided credentials, and created systemd service/socket units for application
+components.
+
+The project used Bitbucket and Bitbucket Pipelines for CI/CD. Deployments
+connected to existing EC2 instances over SSH, pulled the environment-specific
+dev, stage, or production branch, updated dependencies, checked and applied
+Alembic migrations, and restarted the Linux service.
+
+I also configured code-quality enforcement with Black, Pylint, mypy, pre-commit,
+and CI jobs for tests, linting, and type checking. Logs were collected through
+AWS infrastructure, although I no longer remember the exact logging service
+name.
+
+## Responsibilities
+
+- Owned the Data Service and reviewed all service-related pull requests.
+- Designed SQLAlchemy models and managed Alembic migrations.
+- Implemented JWT/MFA authentication and role-based authorization.
+- Developed equipment, configuration, simulation, and integration workflows.
+- Integrated external meteorological-data providers and email notifications.
+- Provisioned AWS infrastructure with Terraform and cloud-init.
+- Configured Bitbucket CI/CD and in-place EC2 deployments.
+- Established automated formatting, linting, typing, and testing checks.

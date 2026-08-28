@@ -1,29 +1,38 @@
 ---
 slug: real-estate-data-pipelines
-title: Real-Estate Data Pipelines
+title: Cloud Data Pipelines for Real-Estate Analytics
 cover: https://picsum.photos/seed/real-estate-pipelines/1200/675
 tools:
     - python
     - google-cloud
+    - google-drive
     - bigquery
     - apache-beam
     - dataflow
 summary: >-
-    A cloud data-pipeline integration that brought customer datasets into a
-    real-estate platform's financial analytics layer.
+    An internal GCP analytics pipeline that moved source files from Google Drive
+    through BigQuery and cloud processing into employee-facing reports.
 ---
 
-A real-estate platform that integrated customer data into a financial analytics
-layer.
+In 2023, I worked on an internal analytics service for a real-estate company.
+Source data arrived as files in Google Drive, commonly CSV as far as I remember,
+and was transformed into queryable analytical datasets.
 
-Work included exploring customer datasets, designing ETL processes, creating
-BigQuery tables, connecting to Google Drive, building parsers for multiple
-customer data formats, and configuring DAGs for Dataflow pipelines.
+A custom Python worker handled ingestion from Google Drive and initial
+serialization before loading data into BigQuery. Apache Beam and DataFlow were
+used across the broader inputs-to-BigQuery-to-reports processing flow. I also
+developed SQL-based methods for querying BigQuery and preparing report datasets.
+
+Prepared analytical outputs were delivered back into the company's Google Drive
+workflow. Google Cloud Storage may have appeared as an intermediate layer, but I
+no longer remember that detail reliably enough to include it as part of the
+required pipeline.
 
 ## Responsibilities
 
-- Design and implement ETL processes for customer data integration.
-- Create BigQuery tables and parsers for customer-specific data formats.
-- Set up connections for ingesting customer data from Google Drive.
-- Create and configure DAGs for Dataflow pipelines.
-- Test new workflows and deploy data pipelines to the platform.
+- Explored incoming customer/internal datasets and designed ETL processes.
+- Developed Google Drive ingestion and serialization logic.
+- Created and populated BigQuery tables for analytical processing.
+- Worked with Apache Beam and DataFlow cloud-processing workflows.
+- Developed SQL queries and methods for preparing analytical reports.
+- Tested workflows and deployed data pipelines to the platform.
