@@ -8,7 +8,7 @@ describe("PageFooter", () => {
     render(<PageFooter aria-label="Portfolio footer" className="site-footer" data-footer="portfolio" />)
 
     const footer = screen.getByRole("contentinfo", { name: "Portfolio footer" })
-    expect(footer).toHaveTextContent("© 2024 Copyright")
+    expect(footer).toHaveTextContent(`© ${new Date().getFullYear()} Copyright`)
     expect(footer).toHaveAttribute("data-footer", "portfolio")
     expect(footer).toHaveClass("site-footer")
   })
