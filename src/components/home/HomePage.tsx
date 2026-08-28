@@ -1,6 +1,6 @@
 import * as React from "react"
 import { profile } from "../../data/profile"
-import { tools } from "../../data/tool/tools"
+import { tools } from "../../data/tool/catalog"
 import { ActionLink } from "../actions/ActionLink"
 import { PageFooter } from "../layout/PageFooter"
 import { PageLayout } from "../layout/PageLayout"
