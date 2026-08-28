@@ -32,7 +32,10 @@ export default IndexPage
 
 export const query = graphql`
   query HomePageProjects {
-    allFile(filter: { sourceInstanceName: { eq: "projects" }, extension: { eq: "mdx" } }) {
+    allFile(
+      filter: { sourceInstanceName: { eq: "projects" }, extension: { eq: "mdx" } }
+      sort: { name: DESC }
+    ) {
       nodes {
         childMdx {
           frontmatter {
