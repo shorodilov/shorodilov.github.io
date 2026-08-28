@@ -71,19 +71,6 @@ export const ProjectDetailPage = ({ children, project, tools }: ProjectDetailPag
             </article>
           </section>
 
-          <section aria-labelledby="project-responsibilities-heading" className="mt-9 md:mt-8">
-            <SectionHeader headingId="project-responsibilities-heading" size="compact" tone="muted">
-              Responsibilities
-            </SectionHeader>
-            <ul aria-label="Project responsibilities" className="mt-4 list-none space-y-2 p-0">
-              {project.responsibilities.map((responsibility) => (
-                <li className="flex items-start gap-3 type-body text-foreground" key={responsibility}>
-                  <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-round bg-accent" />
-                  <span>{responsibility}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
         </div>
       </main>
 

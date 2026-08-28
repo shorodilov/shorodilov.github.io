@@ -14,7 +14,6 @@ export const query = graphql`
         cover
         tools
         summary
-        responsibilities
       }
     }
   }

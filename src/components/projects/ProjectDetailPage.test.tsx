@@ -12,7 +12,6 @@ const project: Project = {
   cover: "/images/sample-project.jpg",
   tools: ["python", "django"],
   summary: "A sample project used to verify the detail presentation.",
-  responsibilities: ["Design the service architecture.", "Implement the project backend."],
 }
 
 const tools: readonly Tool[] = [
@@ -49,19 +48,6 @@ describe("ProjectDetailPage", () => {
         .getAllByRole("img")
         .map((image) => image.getAttribute("alt")),
     ).toEqual(["Python", "Django"])
-  })
-
-  it("renders every project responsibility", () => {
-    render(
-      <ProjectDetailPage project={project} tools={tools}>
-        Project body
-      </ProjectDetailPage>,
-    )
-
-    const responsibilities = screen.getByRole("list", { name: "Project responsibilities" })
-    project.responsibilities.forEach((responsibility) => {
-      expect(within(responsibilities).getByText(responsibility)).toBeInTheDocument()
-    })
   })
 
   it("keeps theme selection local to the project page shell", async () => {
