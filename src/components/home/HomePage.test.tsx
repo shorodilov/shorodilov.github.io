@@ -37,7 +37,7 @@ describe("HomePage", () => {
     expect(aboutSection).toHaveTextContent(profile.summary)
 
     const viewAllLinks = screen.getAllByRole("link", { name: "View all" })
-    expect(viewAllLinks.map((link) => link.getAttribute("href"))).toEqual(["/tools", "/about", "/projects"])
+    expect(viewAllLinks.map((link) => link.getAttribute("href"))).toEqual(["/tools", "/projects"])
   })
 
   it("opens and closes the mobile navigation presentation", async () => {
@@ -48,7 +48,7 @@ describe("HomePage", () => {
 
     const navigation = screen.getByRole("navigation", { name: "Primary navigation" })
     expect(navigation).toBeInTheDocument()
-    expect(screen.getByRole("link", { name: "About" })).toHaveAttribute("href", "/about")
+    expect(screen.queryByRole("link", { name: "About" })).not.toBeInTheDocument()
     expect(screen.getByRole("link", { name: "Tools" })).toHaveAttribute("href", "/tools")
     expect(screen.getByRole("link", { name: "Works" })).toHaveAttribute("href", "/projects")
 
