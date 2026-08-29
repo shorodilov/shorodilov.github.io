@@ -17,9 +17,9 @@ its rule set became harder to maintain in a single SQL query. The validation
 logic was decomposed into native server-side functions exposed directly to SQL
 through a PostgreSQL extension.
 
-The exact implementation language is no longer certain, so I treat it as C/C++
-work. The objective was maintainability rather than performance: new validation
-rules could be added without growing one monolithic query.
+The extension used native C/C++ server-side code. The objective was
+maintainability rather than performance: new validation rules could be added
+without growing one monolithic query.
 
 The extension helped detect invalid geometry intersections, self-intersections
 in road segments, and potential gaps or disconnected segments in the road

@@ -28,8 +28,7 @@ the primary peripherals.
 Several Python services ran on the Raspberry Pi. A platform connector received
 planned routes and returned telemetry, while background/watchdog logic moved
 prepared images into Google Cloud Storage. The Linux-side software used Flask,
-SQLAlchemy, GDAL, SQLite, and an EXIF-manipulation library whose exact package
-name I no longer remember.
+SQLAlchemy, GDAL, SQLite, and EXIF-processing tooling.
 
 The STM32 acted primarily as a camera controller. It could trigger image capture
 automatically when the vehicle approached a target point or manually from the
