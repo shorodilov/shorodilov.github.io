@@ -70,7 +70,6 @@ export const ProjectDetailPage = ({ children, project, tools }: ProjectDetailPag
               {children}
             </article>
           </section>
-
         </div>
       </main>
 
