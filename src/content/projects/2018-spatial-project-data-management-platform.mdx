@@ -1,0 +1,45 @@
+---
+slug: spatial-project-data-management-platform
+title: Spatial Project Data Management Platform
+cover: /images/projects/spatial-project-data-management-platform.cover01.png
+tools:
+    - python
+    - django
+    - postgresql
+    - postgis
+    - qgis
+    - ldap
+    - nginx
+    - gunicorn
+    - celery
+    - rest
+summary: >-
+    An internal Django/PostGIS platform that centralized QGIS project data while
+    isolating engineer workspaces and validating imports into a master dataset.
+---
+
+I built an internal data-management platform as the sole developer.
+The project addressed a familiar synchronization problem: GIS specialists worked
+in QGIS, but local spatial files made it difficult to maintain one authoritative
+project dataset.
+
+A dedicated PostgreSQL/PostGIS database on the corporate server became the
+central store. Each GIS specialist worked in a separate database schema for
+isolation. Validation remained primarily database-side and reused some of the
+spatial-validation functions originating in my earlier spatial-database work.
+
+GIS specialists initiated imports through the Django service. Before moving a
+selected area from a personal schema into the master table, Django checked that
+no unresolved validation errors remained in the import zone. Managers worked
+mostly with the consolidated master dataset and used Django to prepare delivery
+packages. Authentication used the corporate LDAP infrastructure.
+
+## Responsibilities
+
+- Designed and implemented the project as the sole developer.
+- Built the Django service around a centralized PostgreSQL/PostGIS database.
+- Isolated GIS-specialist workspaces in separate database schemas.
+- Integrated database-side validation into the import workflow.
+- Implemented specialist-initiated transfers into the master dataset.
+- Built manager workflows for preparing delivery packages.
+- Integrated corporate LDAP authentication.

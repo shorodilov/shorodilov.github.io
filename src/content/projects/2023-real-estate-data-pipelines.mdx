@@ -1,0 +1,36 @@
+---
+slug: real-estate-data-pipelines
+title: Cloud Data Pipelines for Real-Estate Analytics
+cover: /images/projects/real-estate-data-pipelines.cover01.png
+tools:
+    - python
+    - google-cloud
+    - google-drive
+    - bigquery
+    - apache-beam
+    - dataflow
+summary: >-
+    An internal GCP analytics pipeline that moved source files from Google Drive
+    through BigQuery and cloud processing into employee-facing reports.
+---
+
+I worked on an internal analytics service for a real-estate company.
+Source data arrived as files in Google Drive and was transformed into queryable
+analytical datasets.
+
+A custom Python worker handled ingestion from Google Drive and initial
+serialization before loading data into BigQuery. Apache Beam and DataFlow were
+used across the broader inputs-to-BigQuery-to-reports processing flow. I also
+developed SQL-based methods for querying BigQuery and preparing report datasets.
+
+Prepared analytical outputs were delivered back into the company's Google Drive
+workflow.
+
+## Responsibilities
+
+- Explored incoming customer/internal datasets and designed ETL processes.
+- Developed Google Drive ingestion and serialization logic.
+- Created and populated BigQuery tables for analytical processing.
+- Worked with Apache Beam and DataFlow cloud-processing workflows.
+- Developed SQL queries and methods for preparing analytical reports.
+- Tested workflows and deployed data pipelines to the platform.

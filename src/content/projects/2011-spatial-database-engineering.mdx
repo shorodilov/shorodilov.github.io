@@ -1,0 +1,36 @@
+---
+slug: spatial-database-engineering
+title: Spatial Database Engineering
+cover: /images/projects/spatial-database-engineering.cover01.png
+tools:
+    - postgresql
+    - postgis
+    - plpgsql
+    - ldap
+summary: >-
+    A centralized PostgreSQL/PostGIS workspace that supported road-network and
+    building digitization by roughly 200 geo-engineers.
+---
+
+I worked as a database engineer on a large spatial
+digitization project. Roughly 200 geo-engineers digitized road networks and
+buildings from satellite and aerial imagery against a centralized
+PostgreSQL/PostGIS database.
+
+Project regions were split into separate schemas and tables by spatial cluster
+so engineers could load only the subset of data required for their current work.
+The database also supported regional production analytics and spatial-data
+validation.
+
+A dedicated validation view exposed geometry problems such as invalid
+intersections. The supporting database logic used SQL and PL/pgSQL, triggers,
+materialized views, and spatial queries.
+
+## Responsibilities
+
+- Designed geospatial database schemas and table structures.
+- Organized regional data across isolated schemas and tables.
+- Configured access permissions and corporate LDAP authentication.
+- Managed database backups and PostgreSQL server configuration.
+- Built regional analytics with SQL, PL/pgSQL, and spatial queries.
+- Created triggers, materialized views, and spatial-validation views.

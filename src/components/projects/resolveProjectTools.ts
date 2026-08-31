@@ -1,5 +1,5 @@
 import { type Project } from "../../data/project"
-import { tools } from "../../data/tool/tools"
+import { tools } from "../../data/tool/catalog"
 import { type Tool } from "../../data/tool/types"
 
 const toolsById = new Map(tools.map((tool) => [tool.id, tool]))

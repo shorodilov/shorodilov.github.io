@@ -1,0 +1,49 @@
+---
+slug: field-data-collection-kit
+title: Field Data Collection Kit
+cover: /images/projects/field-data-collection-kit.cover01.png
+tools:
+    - cplusplus
+    - linux
+    - python
+    - flask
+    - sqlalchemy
+    - gdal
+    - sqlite
+    - raspberry-pi
+    - stm32
+    - spi
+    - google-cloud
+    - google-cloud-storage
+summary: >-
+    An embedded Raspberry Pi/STM32 field kit that combined GPS-guided data
+    collection, camera control, local storage, and synchronization with GCP.
+---
+
+I worked on a dedicated embedded kit for field-data collection. The
+hardware combined a Raspberry Pi, an STM32 microcontroller, a resistive
+touchscreen, and multiple peripheral ports, with a camera and GPS receiver as
+the primary peripherals.
+
+Several Python services ran on the Raspberry Pi. A platform connector received
+planned routes and returned telemetry, while background/watchdog logic moved
+prepared images into Google Cloud Storage. The Linux-side software used Flask,
+SQLAlchemy, GDAL, SQLite, and EXIF-processing tooling.
+
+The STM32 acted primarily as a camera controller. It could trigger image capture
+automatically when the vehicle approached a target point or manually from the
+device controls. The firmware was written in C++, with SPI used for communication
+between the Raspberry Pi and the microcontroller.
+
+This project also incorporated the validation and synchronization workflows that
+had previously existed as scripts on field laptops.
+
+## Responsibilities
+
+- Participated in electrical-schematic design and peripheral integration.
+- Configured SPI communication between Raspberry Pi and STM32.
+- Developed the STM32 firmware in C++.
+- Developed control scripts capable of updating controller firmware.
+- Developed and integrated Linux-side Python services on the Raspberry Pi.
+- Participated in data-validation and synchronization integration.
+- Integrated image transfer to Google Cloud Storage.

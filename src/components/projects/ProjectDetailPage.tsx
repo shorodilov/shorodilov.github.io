@@ -66,23 +66,9 @@ export const ProjectDetailPage = ({ children, project, tools }: ProjectDetailPag
             <SectionHeader headingId="project-information-heading" size="compact" tone="muted">
               Project information
             </SectionHeader>
-            <article className="mt-4 type-body text-foreground [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 [&>h2]:mt-8 [&>h2]:mb-3 [&>h2]:type-heading-2 [&>h3]:mt-6 [&>h3]:mb-2 [&>h3]:type-heading-4-caps [&>ol]:my-0 [&>ol]:list-decimal [&>ol]:pl-5 [&>p]:m-0 [&>p+p]:mt-2.5 [&>ul]:my-0 [&>ul]:list-disc [&>ul]:pl-5">
+            <article className="mt-4 type-body text-foreground [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 [&>h2]:mt-8 [&>h2]:mb-3 [&>h2]:type-heading-2 [&>h3]:mt-6 [&>h3]:mb-2 [&>h3]:type-heading-4-caps [&>ol]:my-0 [&>ol]:list-decimal [&>ol]:pl-5 [&>p]:m-0 [&>p+p]:mt-2.5 [&>ul]:my-0 [&>ul]:list-disc [&>ul]:pl-5 [&>ul>li]:marker:text-accent">
               {children}
             </article>
-          </section>
-
-          <section aria-labelledby="project-responsibilities-heading" className="mt-9 md:mt-8">
-            <SectionHeader headingId="project-responsibilities-heading" size="compact" tone="muted">
-              Responsibilities
-            </SectionHeader>
-            <ul aria-label="Project responsibilities" className="mt-4 list-none space-y-2 p-0">
-              {project.responsibilities.map((responsibility) => (
-                <li className="flex items-start gap-3 type-body text-foreground" key={responsibility}>
-                  <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-round bg-accent" />
-                  <span>{responsibility}</span>
-                </li>
-              ))}
-            </ul>
           </section>
         </div>
       </main>

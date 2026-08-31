@@ -1,6 +1,6 @@
 import * as React from "react"
 import { profile } from "../../data/profile"
-import { tools } from "../../data/tool/tools"
+import { tools } from "../../data/tool/catalog"
 import { ActionLink } from "../actions/ActionLink"
 import { PageFooter } from "../layout/PageFooter"
 import { PageLayout } from "../layout/PageLayout"
@@ -38,9 +38,6 @@ const MobileNavigation = ({ onClose, onThemeChange, theme }: MobileNavigationPro
       <MenuToggle controls="mobile-navigation" onClick={onClose} open />
     </div>
     <nav aria-label="Primary navigation" className="my-auto flex flex-col items-start gap-8 self-center">
-      <a className="type-heading-1-caps text-foreground no-underline" href="/about">
-        About
-      </a>
       <a className="type-heading-1-caps text-foreground no-underline" href="/tools">
         Tools
       </a>
@@ -125,16 +122,7 @@ export const HomePage = ({ projects }: HomePageProps) => {
         </h1>
 
         <section aria-labelledby="about-heading" className="hidden md:block">
-          <SectionHeader
-            action={
-              <ActionLink href="/about" variant="compact">
-                View all
-              </ActionLink>
-            }
-            headingId="about-heading"
-          >
-            About
-          </SectionHeader>
+          <SectionHeader headingId="about-heading">About</SectionHeader>
           <p className="mt-5 mb-0 type-body text-foreground">{profile.summary}</p>
         </section>
 

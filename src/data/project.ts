@@ -4,5 +4,4 @@ export interface Project {
   cover: string
   tools: string[]
   summary: string
-  responsibilities: string[]
 }

@@ -1,0 +1,36 @@
+---
+slug: spatial-validation-database-extension
+title: Spatial Validation Database Extension
+cover: /images/projects/spatial-validation-database-extension.cover01.png
+tools:
+    - c-cplusplus
+    - postgresql
+    - postgis
+    - plpgsql
+summary: >-
+    A native PostgreSQL extension that split an increasingly complex spatial
+    validation query into reusable server-side functions.
+---
+
+I extended the validation tooling from the spatial database project as
+its rule set became harder to maintain in a single SQL query. The validation
+logic was decomposed into native server-side functions exposed directly to SQL
+through a PostgreSQL extension.
+
+The extension used native C/C++ server-side code. The objective was
+maintainability rather than performance: new validation rules could be added
+without growing one monolithic query.
+
+The extension helped detect invalid geometry intersections, self-intersections
+in road segments, and potential gaps or disconnected segments in the road
+network. Some classes of errors could also be corrected automatically by
+scheduled server-side jobs, while the validation view evaluated current data on
+the fly.
+
+## Responsibilities
+
+- Decomposed spatial-validation logic into reusable database functions.
+- Implemented a native PostgreSQL extension callable from SQL.
+- Added validation rules as the main spatial project evolved.
+- Supported scheduled automatic correction for selected error types.
+- Kept the live validation view maintainable as validation requirements grew.
